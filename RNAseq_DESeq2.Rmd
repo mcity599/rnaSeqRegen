@@ -1,0 +1,14 @@
+---
+title: "RNAseq_DESeq2"
+output: html_notebook
+---
+
+First time organising R as a project/with github. Referring to this walkthrough on the topic:
+https://ourcodingclub.github.io/2017/02/27/git.html
+
+sampleTables
+```{r}
+sampleTableExpt1 <- read.csv("~/rnaSeqData/sampleTableExpt1.csv")
+sampleTableExpt2 <- read.csv("~/rnaSeqData/sampleTableExpt2.csv")
+sampleTableExpt3 <- read.csv("~/rnaSeqData/sampleTableExpt3.csv")
+```
