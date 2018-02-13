@@ -8,7 +8,172 @@ https://ourcodingclub.github.io/2017/02/27/git.html
 
 sampleTables
 ```{r}
-sampleTableExpt1 <- read.csv("~/rnaSeqData/sampleTableExpt1.csv")
-sampleTableExpt2 <- read.csv("~/rnaSeqData/sampleTableExpt2.csv")
-sampleTableExpt3 <- read.csv("~/rnaSeqData/sampleTableExpt3.csv")
+sampleTableExpt1 <- read.csv("~/rnaSeqData/sampleTables/sampleTableExpt1.csv")
+sampleTableExpt2 <- read.csv("~/rnaSeqData/sampleTables/sampleTableExpt2.csv")
+sampleTableExpt3 <- read.csv("~/rnaSeqData/sampleTables/sampleTableExpt3.csv")
 ```
+
+tximport
+```{r}
+source("https://bioconductor.org/biocLite.R")
+biocLite("tximport")
+library("tximport")
+
+myDir <- "/home/mcity599/rnaSeqData/salmonAlignments/"
+expt1Samples <- c("cag2430_1GCBias","cag2430_2GCBias","cag2430_3GCBias","cag2430_4GCBias","cag2430_5GCBias","cag2430_6GCBias")
+expt1Files <- file.path(myDir,expt1Samples,"quant.sf")
+names(expt1Files) <- paste0("cag2430_",1:6)
+all(file.exists(expt1Files))
+expt1Files
+
+myDir <- "/home/mcity599/rnaSeqData/salmonAlignments/"
+expt2Samples <- c("cag2430_7GCBias","cag2430_8GCBias","cag2430_9GCBias","cag2430_10GCBias","cag2430_11GCBias","cag2430_12GCBias")
+expt2Files <- file.path(myDir,expt2Samples,"quant.sf")
+names(expt2Files) <- paste0("cag2430_",7:12)
+all(file.exists(expt2Files))
+expt2Files
+
+myDir <- "/home/mcity599/rnaSeqData/salmonAlignments/"
+expt3Samples <- c("cag2430_13GCBias","cag2430_14GCBias","cag2430_15GCBias","cag2430_16GCBias","cag2430_17GCBias","cag2430_18GCBias")
+expt3Files <- file.path(myDir,expt3Samples,"quant.sf")
+names(expt3Files) <- paste0("cag2430_",13:18)
+all(file.exists(expt3Files))
+expt3Files
+
+
+## Create a tx2gene table:
+# From Xenbase I've got this:
+NcbiMrnaXenbaseGene_laevis <- read.delim("~/rnaSeqData/geneConverters/NcbiMrnaXenbaseGene_laevis.txt", header=FALSE)
+dim(NcbiMrnaXenbaseGene_laevis)
+# The required format (for tximport) is two columns, transcript and geneID
+NcbiMrnaXenbaseGene_laevis[1:5,]
+transcriptToGene <- NcbiMrnaXenbaseGene_laevis[,c(2,4)]
+colnames(transcriptToGene) <- c("TXNAME","GENEID") # copying the tximport vignette names
+
+expt1TXI <- tximport(expt1Files,type = "salmon", tx2gene = transcriptToGene)
+expt2TXI <- tximport(expt2Files,type = "salmon", tx2gene = transcriptToGene)
+expt3TXI <- tximport(expt3Files,type = "salmon", tx2gene = transcriptToGene)
+```
+
+DESeq2
+```{r}
+biocLite("DESeq2")
+library("DESeq2")
+
+expt1ddsTxi <- DESeqDataSetFromTximport(expt1TXI,
+                                   colData = sampleTableExpt1,
+                                   design = ~ condition)
+expt2ddsTxi <- DESeqDataSetFromTximport(expt2TXI,
+                                   colData = sampleTableExpt2,
+                                   design = ~ condition)
+expt3ddsTxi <- DESeqDataSetFromTximport(expt3TXI,
+                                   colData = sampleTableExpt3,
+                                   design = ~ condition)
+
+# Pre-filtering ( copied from the DESeq2 walkthrough)
+# While it is not necessary to pre-filter low count genes before running the DESeq2 functions, there are two reasons which make pre-filtering useful: by removing rows in which there are very few reads, we reduce the memory size of the dds data object, and we increase the speed of the transformation and testing functions within DESeq2. Here we perform a minimal pre-filtering to keep only rows that have at least 10 reads total. Note that more strict filtering to increase power is automatically applied via independent filtering on the mean of normalized counts within the results function.
+keep <- rowSums(counts(expt1ddsTxi)) >= 10
+ddsExpt1 <- expt1ddsTxi[keep,]
+keep <- rowSums(counts(expt2ddsTxi)) >= 10
+ddsExpt2 <- expt2ddsTxi[keep,]
+keep <- rowSums(counts(expt3ddsTxi)) >= 10
+ddsExpt3 <- expt3ddsTxi[keep,]
+rm(keep)
+
+ddsExpt1$condition
+
+ddsExpt1 <- DESeq(ddsExpt1)
+ddsExpt2 <- DESeq(ddsExpt2)
+ddsExpt3 <- DESeq(ddsExpt3)
+# For the sake of size/tidy workspace, I'll remove the objects needed to make ddsExpt 
+rm(expt1ddsTxi)
+rm(expt2ddsTxi)
+rm(expt3ddsTxi)
+rm(expt1TXI)
+rm(expt2TXI)
+rm(expt3TXI)
+
+# LFC shrinkage for transcripts with low read counts:
+ # Full methods are described in the DESeq2 paper (see DESeq2 citation), but in short, it looks at the largest fold changes that are not due to low counts and uses these to inform a prior distribution. So the large fold changes from genes with lots of statistical information are not shrunk, while the imprecise fold changes are shrunk. This allows you to compare all estimated LFC across experiments, for example, which is not really feasible without the use of a prior.
+#  - https://support.bioconductor.org/p/77461/
+resultsNames(ddsExpt1)
+resLFCexpt1 <- lfcShrink(ddsExpt1, coef=2)
+resLFCexpt2 <- lfcShrink(ddsExpt2, coef=2)
+resLFCexpt3 <- lfcShrink(ddsExpt3, coef=2)
+
+# Trim to include only statistically significant results:
+statSigExpt1 <- subset(resLFCexpt1, padj < 0.05)
+statSigExpt2 <- subset(resLFCexpt2, padj < 0.05)
+statSigExpt3 <- subset(resLFCexpt3, padj < 0.05)
+
+# Pull out only genes with biologically significant (i.e., log2FC >1 or < - 1) differences:
+Expt1_upregInB <- rownames(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt1$log2FoldChange > 1, na.rm=T)], ])
+Expt1_downregInB <- rownames(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = F)[1:sum(statSigExpt1$log2FoldChange < -1, na.rm=T)], ])
+
+Expt2_upregInB <- rownames(statSigExpt2[order(statSigExpt2$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt2$log2FoldChange > 1, na.rm=T)], ])
+Expt2_downregInB <- rownames(statSigExpt2[order(statSigExpt2$log2FoldChange, decreasing = F)[1:sum(statSigExpt2$log2FoldChange < -1, na.rm=T)], ])
+
+Expt3_upregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt3$log2FoldChange > 1, na.rm=T)], ])
+Expt3_downregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = F)[1:sum(statSigExpt3$log2FoldChange < -1, na.rm=T)], ])
+```
+
+Convert these up and downregulated gene names to something that can go through PANTHER
+```{r}
+XenbaseGenepageToGeneIdMapping <- read.delim("~/rnaSeqData/geneConverters/XenbaseGenepageToGeneIdMapping.txt", header=FALSE)
+# readme:
+##File contains the mapping of XB-GENEPAGE IDs, the primary identifier for a genepage to XB-GENE IDs for individual tropicalis and laevis genes.
+##The file is tab-delimited and has the following format:
+    #Xenbase genepage ID
+    #Xenbase Gene IDs
+
+# The ID in these next vectors is a sort of 'basal gene name', from which the names given to the transcript originates. e.g., the first gene in the following file is "nog", but prior to conversion is "nog.L" (which I know refers to the "long" chromosome in the X.laevis genome). This ".L" prevents any mapping
+expt1_geneConversionUp <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt1_upregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+expt1_geneConversionDown <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt1_downregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+
+expt2_geneConversionUp <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt2_upregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+expt2_geneConversionDown <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt2_downregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+
+expt3_geneConversionUp <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt3_upregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+expt3_geneConversionDown <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt3_downregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+
+length(expt1_geneConversionDown)
+length(expt1_geneConversionUp)
+length(expt2_geneConversionDown)
+length(expt2_geneConversionUp)
+length(expt3_geneConversionDown)
+length(expt3_geneConversionUp)
+
+
+# The vectors above could essentially be used, but the conversion below filters for only genes with a human Ortholog - it tends to cut out all locXXXX transcripts. As far as I've been able to see with my eye, this is all that it does. 
+XenbaseGeneHumanOrthologMapping <- read.delim("~/rnaSeqData/geneConverters/XenbaseGeneHumanOrthologMapping.txt", header=FALSE)
+
+DownregGenes_expt1 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt1_geneConversionDown,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+length(DownregGenes_expt1)
+length(expt1_geneConversionDown)
+
+UpregGenes_expt1 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt1_geneConversionUp,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+length(UpregGenes_expt1)
+
+DownregGenes_expt2 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt2_geneConversionDown,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+UpregGenes_expt2 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt2_geneConversionUp,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+
+DownregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionDown,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+UpregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionUp,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+
+getwd()
+write.csv(DownregGenes_expt1,file="DownregGenes_expt1.csv",row.names=F,col.names = F)
+write.csv(DownregGenes_expt2,file="DownregGenes_expt2.csv",row.names=F,col.names = F)
+write.csv(DownregGenes_expt2,file="DownregGenes_expt3.csv",row.names=F,col.names = F)
+
+write.csv(UpregGenes_expt1,file="UpregGenes_expt1.csv",row.names=F,col.names = F)
+write.csv(UpregGenes_expt2,file="UpregGenes_expt2.csv",row.names=F,col.names = F)
+write.csv(UpregGenes_expt3,file="UpregGenes_expt3.csv",row.names=F,col.names = F)
+
+```
+
+
+
+
+
+
+
