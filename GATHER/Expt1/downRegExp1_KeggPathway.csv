@@ -1,0 +1,30 @@
+#	Annotation	Total Genes With Ann	Your Genes (With Ann)	Your Genes (No Ann)	Genome (With Ann)	Genome (No Ann)	ln(Bayes factor)	neg ln(p value)	FE: neg ln(p value)	FE: neg ln(FDR)	Genes
+1	path:hsa04010: MAPK signaling pathway	10	10	22	233	2865	5.97	9.76	9.29	5.92	DUSP6 FGF10 FGF20 FGF3 FGF4 FGF7 FGF8 IL1B NGFB PLA2G4A
+2	path:hsa04340: Hedgehog signaling pathway	4	4	28	50	3048	2.83	7.11	6.22	3.55	BMP4 BMP7 WNT3A WNT5B
+3	path:hsa04810: Regulation of actin cytoskeleton	7	7	25	206	2892	2.1	6.34	5.35	3.08	FGF10 FGF20 FGF3 FGF4 FGF7 FGF8 IQGAP2
+4	path:hsa04350: TGF-beta signaling pathway	3	3	29	82	3016	-0.37	0.0	2.91	1.25	BMP4 BMP7 SMAD6
+5	path:hsa04310: Wnt signaling pathway	4	4	28	143	2955	-0.39	0.0	2.81	1.25	DKK1 DKK2 WNT3A WNT5B
+6	path:hsa00590: Prostaglandin and leukotriene metabolism	2	2	30	37	3061	-0.54	0.0	2.82	1.25	PLA2G4A PTGS2
+7	path:hsa04210: Apoptosis	3	3	29	93	3005	-0.63	0.0	2.62	1.25	IL1B NGFB TNFSF10
+8	path:hsa00628: Fluorene degradation	1	1	31	7	3091	-0.91	0.0	2.54	1.25	CYP26A1
+9	path:hsa00940: Stilbene, coumarine and lignin biosynthesis	1	1	31	12	3086	-1.35	0.0	2.08	0.91	CYP26A1
+10	path:hsa00053: Ascorbate and aldarate metabolism	1	1	31	16	3082	-1.58	0.0	1.83	0.76	CYP26A1
+11	path:hsa04060: Cytokine-cytokine receptor interaction	4	4	28	253	2845	-1.58	0.0	1.33	0.73	BMP7 IL1B NGFR TNFSF10
+12	path:hsa00252: Alanine and aspartate metabolism	1	1	31	22	3076	-1.82	0.0	1.56	0.75	ASS
+13	path:hsa00604: Ganglioside biosynthesis	1	1	31	22	3076	-1.82	0.0	1.56	0.75	ST3GAL2
+14	path:hsa00220: Urea cycle and metabolism of amino groups	1	1	31	24	3074	-1.88	0.0	1.48	0.75	ASS
+15	path:hsa00603: Globoside metabolism	1	1	31	24	3074	-1.88	0.0	1.48	0.75	ST3GAL2
+16	path:hsa00903: Limonene and pinene degradation	1	1	31	28	3070	-1.99	0.0	1.35	0.73	CYP26A1
+17	path:hsa00512: O-Glycan biosynthesis	1	1	31	34	3064	-2.12	0.0	1.19	0.66	ST3GAL2
+18	path:hsa04630: Jak-STAT signaling pathway	2	2	30	157	2941	-2.18	0.0	0.71	0.52	SPRY1 SPRY2
+19	path:hsa00361: gamma-Hexachlorocyclohexane degradation	1	1	31	42	3056	-2.24	0.0	1.02	0.63	CYP26A1
+20	path:hsa00260: Glycine, serine and threonine metabolism	1	1	31	43	3055	-2.26	0.0	1.01	0.63	PHGDH
+21	path:hsa00600: Glycosphingolipid metabolism	1	1	31	45	3053	-2.28	0.0	0.97	0.63	SGPP2
+22	path:hsa04330: Notch signaling pathway	1	1	31	46	3052	-2.29	0.0	0.95	0.63	JAG1
+23	path:hsa00330: Arginine and proline metabolism	1	1	31	50	3048	-2.33	0.0	0.89	0.61	ASS
+24	path:hsa00230: Purine metabolism	1	1	31	150	2948	-2.39	0.0	0.23	0.23	DCK
+25	path:hsa04910: Insulin signaling pathway	1	1	31	143	2955	-2.42	0.0	0.25	0.23	IRS4
+26	path:hsa00071: Fatty acid metabolism	1	1	31	64	3034	-2.43	0.0	0.71	0.52	ACSL4
+27	path:hsa00564: Glycerophospholipid metabolism	1	1	31	73	3025	-2.47	0.0	0.62	0.47	PLA2G4A
+28	path:hsa00240: Pyrimidine metabolism	1	1	31	89	3009	-2.5	0.0	0.5	0.39	DCK
+29	path:hsa04620: Toll-like receptor signaling pathway	1	1	31	97	3001	-2.51	0.0	0.45	0.37	IL1B

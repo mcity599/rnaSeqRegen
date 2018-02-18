@@ -176,4 +176,17 @@ write.csv(UpregGenes_expt3,file="UpregGenes_expt3.csv",row.names=F,col.names = F
 
 
 
+20180219
+==========================================================================================================================================================
+
+Testing out the goseq package (Young et al., 2010) which was used by Whitworth2017translational to perform gene ontology.
+
+```{r}
+source("https://bioconductor.org/biocLite.R")
+biocLite("goseq")
+library("goseq")
+```
+
+
+
 
