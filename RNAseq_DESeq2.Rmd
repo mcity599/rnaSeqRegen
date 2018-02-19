@@ -107,6 +107,10 @@ resLFCexpt1 <- lfcShrink(ddsExpt1, coef=2)
 resLFCexpt2 <- lfcShrink(ddsExpt2, coef=2)
 resLFCexpt3 <- lfcShrink(ddsExpt3, coef=2)
 
+rm(ddsExpt1)
+rm(ddsExpt2)
+rm(ddsExpt3)
+
 # Trim to include only statistically significant results:
 statSigExpt1 <- subset(resLFCexpt1, padj < 0.05)
 statSigExpt2 <- subset(resLFCexpt2, padj < 0.05)
@@ -175,6 +179,10 @@ write.csv(UpregGenes_expt1,file="UpregGenes_expt1.csv",row.names=F,col.names = F
 write.csv(UpregGenes_expt2,file="UpregGenes_expt2.csv",row.names=F,col.names = F)
 write.csv(UpregGenes_expt3,file="UpregGenes_expt3.csv",row.names=F,col.names = F)
 
+# Tidy up by removing the large objects involve in these conversions:
+rm(NcbiMrnaXenbaseGene_laevis)
+rm(XenbaseGeneHumanOrthologMapping)
+rm(XenbaseGenepageToGeneIdMapping)
 ```
 
 
@@ -260,7 +268,144 @@ rm(y)
 rm(cts)
 rm(normMat)
 rm(o)
+
+edgeR_Y_expt1$samples
+# Lacks info about which group they are in
+edgeR_Y_expt1$samples$group <- c(rep("1",3),rep("2",3))
+edgeR_Y_expt1$samples
+edgeR_Y_expt2$samples$group <- c(rep("1",3),rep("2",3))
+edgeR_Y_expt3$samples$group <- c(rep("1",3),rep("2",3))
+
 ```
+
+
+RNA-seq provides a measure of the relative abundance of each gene in each RNA sample, but does
+not provide any measure of the total RNA output on a per-cell basis.  This commonly becomes
+important  when  a  small  number  of  genes  are  very  highly  expressed  in  one  sample,  but  not  in
+another.  The highly expressed genes can consume a substantial proportion of the total library size,
+causing the remaining genes to be under-sampled in that sample.  Unless this
+RNA  composition
+effect is adjusted for, the remaining genes may falsely appear to be down-regulated in that sample
+[30].
+The
+calcNormFactors
+function normalizes for RNA composition by finding a set of scaling factors
+for the library sizes that minimize the log-fold changes between the samples for most genes.  The
+default method for computing these scale factors uses a trimmed mean of M-values (TMM) between
+each pair of samples [30].  We call the product of the original library size and the scaling factor the
+effective  library  size
+.  The effective library size replaces the original library size in all downsteam
+analyses.
+TMM  is  the  recommended  for  most  RNA-Seq  data  where  the  majority  (more  than  half)  of
+the genes are believed not differentially expressed between any pair of the samples.  The following
+commands perform the TMM normalization and display the normalization factors.
+# y <- calcNormFactors(y)
+# y$samples
+```{r}
+edgeR_Y_expt1 <- calcNormFactors(edgeR_Y_expt1)
+edgeR_Y_expt1$samples
+
+edgeR_Y_expt2 <- calcNormFactors(edgeR_Y_expt2)
+edgeR_Y_expt2$samples
+
+edgeR_Y_expt3 <- calcNormFactors(edgeR_Y_expt3)
+edgeR_Y_expt3$samples
+```
+
+
+
+Pairwise comparison between two groups
+----------------------------------------
+Estimating dispersions:
+A glm (generalised linear model) estimates probabiblity distributions according to their mean-variance relationship. This first involves calculating "dispersion". 
+
+```{r}
+# y <- estimateDisp(y, design)
+# To create the design object:
+
+designExpt1 <- model.matrix(~0+group, data=edgeR_Y_expt1$samples)
+colnames(designExpt1) <- c("A","B")
+designExpt2 <- model.matrix(~0+group, data=edgeR_Y_expt2$samples)
+colnames(designExpt1) <- c("A","B")
+designExpt3 <- model.matrix(~0+group, data=edgeR_Y_expt3$samples)
+colnames(designExpt1) <- c("A","B")
+
+edgeR_dispersion_expt1 <- estimateDisp(edgeR_Y_expt1,designExpt1)
+edgeR_dispersion_expt2 <- estimateDisp(edgeR_Y_expt2,designExpt2)
+edgeR_dispersion_expt3 <- estimateDisp(edgeR_Y_expt3,designExpt3)
+```
+
+# Now ready to test for DE genes using a linear model approach:
+```{r}
+fitExpt1 <- glmQLFit(edgeR_dispersion_expt1, designExpt1)
+fitExpt2 <- glmQLFit(edgeR_dispersion_expt2, designExpt2)
+fitExpt3 <- glmQLFit(edgeR_dispersion_expt3, designExpt3)
+
+BvsA <- makeContrasts(B-A, levels=designExpt1)
+# Which is the same for experiments 2 and 3
+BvsA
+
+glmResultExpt1 <- glmQLFTest(fitExpt1, contrast=BvsA)
+glmResultExpt2 <- glmQLFTest(fitExpt2, contrast=BvsA)
+glmResultExpt3 <- glmQLFTest(fitExpt3, contrast=BvsA)
+
+topTags(glmResultExpt1)
+?topTags
+topTags(glmResultExpt1,adjust.method = "BH", sort.by = "logFC")
+# there should be a way to retrieve all tags with p values < 0.05:
+glmExpt1_p05 <- topTags(glmResultExpt1,p.value = 0.05)
+dim(glmExpt1_p05)
+# Doesn't work, only returns the top 10. 
+
+topTags(glmResultExpt1,n=100)
+# This can retrieve as many as specified:
+topTags(glmResultExpt1)
+glmExpt1_p05 <- topTags(glmResultExpt1,n=50000,adjust.method="BH",p.value = 0.05) # where n is any number larger than the number of genes with P < 0.05
+glmExpt2_p05 <- topTags(glmResultExpt2,n=50000,adjust.method="BH",p.value = 0.05)
+glmExpt3_p05 <- topTags(glmResultExpt3,n=50000,adjust.method="BH",p.value = 0.05)
+
+# Pull out only genes which are also biologically (log2FC)
+## The help page for glmLRT says: "The data frame table contains the following columns: logFC: log2-fold change of expression between conditions being tested." so I know I'm working oin log2FC. (https://support.bioconductor.org/p/50273/)
+colnames(glmExpt1_p05)
+edgerSigResultsUpRegExpt1 <- glmExpt1_p05[order(glmExpt1_p05$table$logFC,decreasing=T)[1:sum(sort(glmExpt1_p05$table$logFC,decreasing=T) >1,na.rm=T)],]
+edgerSigResultsUpRegExpt1[1:20,]
+edgerSigResultsDownRegExpt1 <- glmExpt1_p05[order(glmExpt1_p05$table$logFC,decreasing=F)[1:sum(sort(glmExpt1_p05$table$logFC,decreasing=F) < -1,na.rm=T)],]
+edgerSigResultsDownRegExpt1[1:20,]
+
+grep("nog",rownames(edgerSigResultsDownRegExpt1))
+grep("nog",rownames(edgerSigResultsUpRegExpt1))
+
+dim(edgerSigResultsDownRegExpt1)
+dim(edgerSigResultsUpRegExpt1)
+
+# Expt2
+edgerSigResultsUpRegExpt2 <- glmExpt2_p05[order(glmExpt2_p05$table$logFC,decreasing=T)[1:sum(sort(glmExpt2_p05$table$logFC,decreasing=T) >1,na.rm=T)],]
+edgerSigResultsUpRegExpt2[1:20,]
+edgerSigResultsDownRegExpt2 <- glmExpt2_p05[order(glmExpt2_p05$table$logFC,decreasing=F)[1:sum(sort(glmExpt2_p05$table$logFC,decreasing=F) < -1,na.rm=T)],]
+edgerSigResultsDownRegExpt2[1:20,]
+dim(edgerSigResultsDownRegExpt2)
+dim(edgerSigResultsUpRegExpt2)
+
+# Expt3
+edgerSigResultsUpRegExpt3 <- glmExpt3_p05[order(glmExpt3_p05$table$logFC,decreasing=T)[1:sum(sort(glmExpt3_p05$table$logFC,decreasing=T) >1,na.rm=T)],]
+edgerSigResultsUpRegExpt3[1:20,]
+edgerSigResultsDownRegExpt3 <- glmExpt3_p05[order(glmExpt3_p05$table$logFC,decreasing=F)[1:sum(sort(glmExpt3_p05$table$logFC,decreasing=F) < -1,na.rm=T)],]
+edgerSigResultsDownRegExpt3[1:20,]
+dim(edgerSigResultsDownRegExpt3)
+dim(edgerSigResultsUpRegExpt3)
+
+getwd()
+# Will manually transfer to EdgeR_diffExpressedGenes
+write.csv(edgerSigResultsUpRegExpt1,file='edgerSigResultsUpRegExpt1.csv')
+write.csv(edgerSigResultsUpRegExpt2,file='edgerSigResultsUpRegExpt2.csv')
+write.csv(edgerSigResultsUpRegExpt3,file='edgerSigResultsUpRegExpt3.csv')
+
+write.csv(edgerSigResultsDownRegExpt1,file='edgerSigResultsDownRegExpt1.csv')
+write.csv(edgerSigResultsDownRegExpt2,file='edgerSigResultsDownRegExpt2.csv')
+write.csv(edgerSigResultsDownRegExpt3,file='edgerSigResultsDownRegExpt3.csv')
+```
+
+
 
 
 
