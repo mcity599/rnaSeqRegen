@@ -69,6 +69,12 @@ expt2ddsTxi <- DESeqDataSetFromTximport(expt2TXI,
 expt3ddsTxi <- DESeqDataSetFromTximport(expt3TXI,
                                    colData = sampleTableExpt3,
                                    design = ~ condition)
+## Edit on 20180219
+# While re-reading the tximport vignette I found this important piece of info:
+## Note: there are two suggested ways of importing estimates for use with differential gene expression (DGE) methods. The first method, which we show below for edgeR and for DESeq2, is to use the gene-level estimated counts from the quantification tools, and additionally to use the transcript-level abundance estimates to calculate a gene-level offset that corrects for changes to the average transcript length across samples. The code examples below accomplish these steps for you, keeping track of appropriate matrices and calculating these offsets. For edgeR you need to assign a matrix to y$offset, but the function DESeqDataSetFromTximport takes care of creation of the offset for you. Let’s call this method “original counts and offset”.
+# The second method is to use the tximport argument countsFromAbundance="lengthScaledTPM" or "scaledTPM", and then to use the gene-level count matrix txi$counts directly as you would a regular count matrix with these software. Let’s call this method “bias corrected counts without an offset”
+# Do not do this: Do not manually pass the original gene-level counts to downstream methods without an offset. The original gene-level counts are in txi$counts when tximport was run with countsFromAbundance="no". This is simply passing the summed estimated transcript counts, and does not correct for potential differential isoform usage (the offset), which is the point of the tximport methods (Soneson, Love, and Robinson 2015) for gene-level analysis. Passing uncorrected gene-level counts without an offset is not recommended by the tximport package authors. The two methods we provide here are: “original counts and offset” or “bias corrected counts without an offset”. Passing txi to DESeqDataSetFromTximport as outlined below is correct: the function creates the appropriate offset for you to perform gene-level differential expression.
+## I hadn't noticed this when I first did it, but fortunately I had used the correct function anyway (due to the tximport vignette being well written)
 
 # Pre-filtering ( copied from the DESeq2 walkthrough)
 # While it is not necessary to pre-filter low count genes before running the DESeq2 functions, there are two reasons which make pre-filtering useful: by removing rows in which there are very few reads, we reduce the memory size of the dds data object, and we increase the speed of the transformation and testing functions within DESeq2. Here we perform a minimal pre-filtering to keep only rows that have at least 10 reads total. Note that more strict filtering to increase power is automatically applied via independent filtering on the mean of normalized counts within the results function.
@@ -173,20 +179,88 @@ write.csv(UpregGenes_expt3,file="UpregGenes_expt3.csv",row.names=F,col.names = F
 
 
 
-
-
-
 20180219
 ==========================================================================================================================================================
 
-Testing out the goseq package (Young et al., 2010) which was used by Whitworth2017translational to perform gene ontology.
+Two jobs: 
+1. Use EdgeR to generate a new list of diff expressed genes. Can use the DE expt overlap between DESEq2 and EdgeR for a more robust analysis. 
+2. Overlap EdgeR/DESeq2
+  2.1 Might need to adjust the Expt1 parameters at this point, since Expt1 had very few DE genes - C states this may be due to the noisy nature of the experimental comparison. 
+  
+
 
 ```{r}
 source("https://bioconductor.org/biocLite.R")
-biocLite("goseq")
-library("goseq")
+biocLite("BiocUpgrade")
+
+biocLite("edgeR")
+library("edgeR")
+# Consulting the edgeR user guide: https://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf
+# Two modules incorporated: classic (exact statistical models for multiple groups) and glm (generalised linear models). Both use empirical Bayes to estimate gene-specific biological variation
+### EdgeR has a specific citation request, asking that citations are done (in addition to EdgeR) for the specific commands - i.e., it lists a bunch of papers with the various commands they have derived and asks for specific citation of these papers. 
+
+# Within glm are two sub-modules: likelihood ratio test and quasi-likelihood F-test. Guide recommends the quasi-likelihood F-test for any bulk RNA-seq experiment, which uses a stricter error rate which can account for uncertainty in dispersion estimate (??). 
 ```
 
+Reading counts from a file:
+```{r}
+# The formula: y <- DGEList(counts=x)
+```
+At this point, I assumed expt1TXI (search above) was the object I'm after. It contains the 'count' info. 
+To re-familiarise myself with the TXI object I looked at the tximport vignette (https://bioconductor.org/packages/3.7/bioc/vignettes/tximport/inst/doc/tximport.html#edger)
+Found this quick walkthrough:
+
+cts <- txi$counts
+normMat <- txi$length
+normMat <- normMat/exp(rowMeans(log(normMat)))
+library(edgeR)
+o <- log(calcNormFactors(cts/normMat)) + log(colSums(cts/normMat))
+y <- DGEList(cts)
+y$offset <- t(t(log(normMat)) + o)
+y is now ready for estimate dispersion functions see edgeR User's Guide
+
+```{r}
+expt1TXI <- tximport(expt1Files,type = "salmon", tx2gene = transcriptToGene)
+expt2TXI <- tximport(expt2Files,type = "salmon", tx2gene = transcriptToGene)
+expt3TXI <- tximport(expt3Files,type = "salmon", tx2gene = transcriptToGene)
+length(expt1TXI)
+names(expt1TXI)
+# abundance, counts, length, countsFromAbundance
+
+# Using the above framework:
+cts <- expt1TXI$counts
+normMat <- expt1TXI$length
+normMat <- normMat/exp(rowMeans(log(normMat)))
+library(edgeR)
+o <- log(calcNormFactors(cts/normMat)) + log(colSums(cts/normMat))
+y <- DGEList(cts)
+y$offset <- t(t(log(normMat)) + o)
+edgeR_Y_expt1 <- y
+
+cts <- expt2TXI$counts
+normMat <- expt2TXI$length
+normMat <- normMat/exp(rowMeans(log(normMat)))
+library(edgeR)
+o <- log(calcNormFactors(cts/normMat)) + log(colSums(cts/normMat))
+y <- DGEList(cts)
+y$offset <- t(t(log(normMat)) + o)
+edgeR_Y_expt2 <- y
+
+cts <- expt3TXI$counts
+normMat <- expt3TXI$length
+normMat <- normMat/exp(rowMeans(log(normMat)))
+library(edgeR)
+o <- log(calcNormFactors(cts/normMat)) + log(colSums(cts/normMat))
+y <- DGEList(cts)
+y$offset <- t(t(log(normMat)) + o)
+edgeR_Y_expt3 <- y
+
+# Tidy up
+rm(y)
+rm(cts)
+rm(normMat)
+rm(o)
+```
 
 
 
