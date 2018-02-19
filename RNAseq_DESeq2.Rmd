@@ -170,19 +170,48 @@ UpregGenes_expt2 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(
 DownregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionDown,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
 UpregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionUp,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
 
-getwd()
-write.csv(DownregGenes_expt1,file="DownregGenes_expt1.csv",row.names=F,col.names = F)
-write.csv(DownregGenes_expt2,file="DownregGenes_expt2.csv",row.names=F,col.names = F)
-write.csv(DownregGenes_expt2,file="DownregGenes_expt3.csv",row.names=F,col.names = F)
-
-write.csv(UpregGenes_expt1,file="UpregGenes_expt1.csv",row.names=F,col.names = F)
-write.csv(UpregGenes_expt2,file="UpregGenes_expt2.csv",row.names=F,col.names = F)
-write.csv(UpregGenes_expt3,file="UpregGenes_expt3.csv",row.names=F,col.names = F)
-
 # Tidy up by removing the large objects involve in these conversions:
 rm(NcbiMrnaXenbaseGene_laevis)
 rm(XenbaseGeneHumanOrthologMapping)
 rm(XenbaseGenepageToGeneIdMapping)
+
+
+
+
+
+#### Put these items into a list which can be loaded as a single object in future 
+#(and is probably how I should have been working with these objects)
+# =====================================================================================
+DESeqDEGenesExpt1 <- list(as.vector(DownregGenes_expt1),as.vector(UpregGenes_expt1))
+# Find appropriate names that won't need a reference:
+# Remember that "Down" and "Up" are relative to B (i.e., Down in B)
+sampleTableExpt1 # While I had previously written these as down regulated in B (Non-regenerating) and Upregulated in B, I will now switch that to read Up in Regen (WT) and Up in NR
+names(DESeqDEGenesExpt1) <- c("OverExpressedWT","OverExpressedNR")
+DESeqDEGenesExpt1
+
+DESeqDEGenesExpt2 <- list(as.vector(DownregGenes_expt2),as.vector(UpregGenes_expt2))
+sampleTableExpt2
+names(DESeqDEGenesExpt2) <- c("OverExpressedTbud","OverExpressedPNT")
+
+DESeqDEGenesExpt3 <- list(as.vector(DownregGenes_expt3),as.vector(UpregGenes_expt3))
+sampleTableExpt3
+names(DESeqDEGenesExpt3) <- c("OverExpressedConCap","OverExpressedInjCap")
+
+setwd("~/Documents/RnaR/rnaSeqRegen/Objects")
+save(DESeqDEGenesExpt1,file='DESeqDEGenesExpt1.RData')
+save(DESeqDEGenesExpt2,file='DESeqDEGenesExpt2.RData')
+save(DESeqDEGenesExpt3,file='DESeqDEGenesExpt3.RData')
+
+getwd()
+# Will manually transfer to DESeq2_diffExpressedGenes
+write.csv(DESeqDEGenesExpt1[[1]],file=paste0("DSq2DE_Expt1",names(DESeqDEGenesExpt1)[1],".csv"))
+write.csv(DESeqDEGenesExpt1[[2]],file=paste0("DSq2DE_Expt1",names(DESeqDEGenesExpt1)[2],".csv"))
+
+write.csv(DESeqDEGenesExpt2[[1]],file=paste0("DSq2DE_Expt2",names(DESeqDEGenesExpt2)[1],".csv"))
+write.csv(DESeqDEGenesExpt2[[2]],file=paste0("DSq2DE_Expt2",names(DESeqDEGenesExpt2)[2],".csv"))
+
+write.csv(DESeqDEGenesExpt3[[1]],file=paste0("DSq2DE_Expt3",names(DESeqDEGenesExpt3)[1],".csv"))
+write.csv(DESeqDEGenesExpt3[[2]],file=paste0("DSq2DE_Expt3",names(DESeqDEGenesExpt3)[2],".csv"))
 ```
 
 
@@ -393,6 +422,101 @@ edgerSigResultsDownRegExpt3 <- glmExpt3_p05[order(glmExpt3_p05$table$logFC,decre
 edgerSigResultsDownRegExpt3[1:20,]
 dim(edgerSigResultsDownRegExpt3)
 dim(edgerSigResultsUpRegExpt3)
+```
+
+
+Noticably, there are many more DE genes in the EdgeR analysis compared to the DESeq2 analysis. 
+- I have not yet been able to figure out if EdgeR moderates genes on the basis of low-count > high variance. This did appear to make a substantial difference when implemented in the DESeq2 package. 
+- There are no doubt other differences in the default settings (https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)
+
+I can now calculate the overlap between EdgeR and DESeq2 - it will be important to look at the overlap from the point of view of agreement (i.e., the two support each other's calls) as well as 'final list' (DE genes are only those contained in both lists). 
+  - The second of these could be problematic, since I know that DESEq2 for some reason had few DE genes in Expt1. 
+  
+Saving a copy of the environment
+```{r}
+# In Documents/RnaR/rnaSeqRegen/
+save.image("~/Documents/RnaR/rnaSeqRegen/DiffExpressedGenes_environment.RData")
+```
+
+  
+  
+20190220
+==============================================================================================================================================================================
+Today:
+Retrieve the geneSymbol for Edger DE genes (currently they are in the nog.l format)
+
+Overlap between EdgeR and DSq2. 
+Explore the parameters in DSq2 which could lead to a larger number of DE genes in Expt1. 
+  - This will run as a secondary figure/subsection - not a replacement.
+
+```{r}
+# ========================================
+## Save three list objects which have both up and down reg genes for each expt
+# remember to save the names of the lists as OverexpressedNR OverexpressedWT, which will be easy to interpret without loading and referring to a sample table in the future. 
+EdgeR_resultsTableExpt1 <- list(edgerSigResultsDownRegExpt1,edgerSigResultsUpRegExpt1)
+designExpt1
+sampleTableExpt1
+names(EdgeR_resultsTableExpt1) <- c("OverExpressedWT","OverExpressedNR")
+
+EdgeR_resultsTableExpt2 <- list(edgerSigResultsDownRegExpt2,edgerSigResultsUpRegExpt2)
+designExpt2
+sampleTableExpt2
+names(EdgeR_resultsTableExpt2) <- c("OverExpressedTbud","OverExpressedPNT")
+
+EdgeR_resultsTableExpt3 <- list(edgerSigResultsDownRegExpt3,edgerSigResultsUpRegExpt3)
+designExpt3
+sampleTableExpt3
+names(EdgeR_resultsTableExpt3) <- c("OverExpressedConCap","OverExpressedInjCap")
+```
+
+
+Retrieve gene symbols:
+```{r}
+XenbaseGenepageToGeneIdMapping <- read.delim("~/rnaSeqData/geneConverters/XenbaseGenepageToGeneIdMapping.txt", header=FALSE)
+# The ID in these next vectors is a sort of 'basal gene name', from which the names given to the transcript originates. e.g., the first gene in the following file is "nog", but prior to conversion is "nog.L" (which I know refers to the "long" chromosome in the X.laevis genome). This ".L" prevents any mapping
+NcbiMrnaXenbaseGene_laevis <- read.delim("~/rnaSeqData/geneConverters/NcbiMrnaXenbaseGene_laevis.txt", header=FALSE)
+
+EdgeExpt1 <- lapply(1:length(EdgeR_resultsTableExpt1), function(x) as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(rownames(EdgeR_resultsTableExpt1[[x]]),NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2])))
+# Remember that not all genes will match, will therefore need to trim the table based on how many do map
+EdgeExpt2 <- lapply(1:length(EdgeR_resultsTableExpt2), function(x) as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(rownames(EdgeR_resultsTableExpt2[[x]]),NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2])))
+EdgeExpt3 <- lapply(1:length(EdgeR_resultsTableExpt3), function(x) as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(rownames(EdgeR_resultsTableExpt3[[x]]),NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2])))
+
+names(EdgeExpt1) <- names(EdgeR_resultsTableExpt1)
+names(EdgeExpt2) <- names(EdgeR_resultsTableExpt2)
+names(EdgeExpt3) <- names(EdgeR_resultsTableExpt3)
+
+# The vectors above could essentially be used, but the conversion below filters for only genes with a human Ortholog - it tends to cut out all locXXXX transcripts. As far as I've been able to see with my eye, this is all that it does. 
+
+XenbaseGeneHumanOrthologMapping <- read.delim("~/rnaSeqData/geneConverters/XenbaseGeneHumanOrthologMapping.txt", header=FALSE)
+EdgeDEgenes_Expt1 <- lapply(1:length(EdgeExpt1), function(x) as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(EdgeExpt1[[x]],as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3]))
+names(EdgeDEgenes_Expt1) <- names(EdgeExpt1)
+
+EdgeDEgenes_Expt2 <- lapply(1:length(EdgeExpt2), function(x) as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(EdgeExpt2[[x]],as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3]))
+names(EdgeDEgenes_Expt2) <- names(EdgeExpt2)
+
+EdgeDEgenes_Expt3 <- lapply(1:length(EdgeExpt3), function(x) as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(EdgeExpt3[[x]],as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3]))
+names(EdgeDEgenes_Expt3) <- names(EdgeExpt3)
+
+EdgeDEgenes_Expt1
+
+getwd()
+# Will manually transfer to EdgeR_diffExpressedGenes
+write.csv(EdgeDEgenes_Expt1[[1]],file=paste0("EdgeDE_Expt1",names(EdgeDEgenes_Expt1)[1],".csv"))
+write.csv(EdgeDEgenes_Expt1[[2]],file=paste0("EdgeDE_Expt1",names(EdgeDEgenes_Expt1)[2],".csv"))
+
+write.csv(EdgeDEgenes_Expt2[[1]],file=paste0("EdgeDE_Expt2",names(EdgeDEgenes_Expt2)[1],".csv"))
+write.csv(EdgeDEgenes_Expt2[[2]],file=paste0("EdgeDE_Expt2",names(EdgeDEgenes_Expt2)[2],".csv"))
+
+write.csv(EdgeDEgenes_Expt3[[1]],file=paste0("EdgeDE_Expt3",names(EdgeDEgenes_Expt3)[1],".csv"))
+write.csv(EdgeDEgenes_Expt3[[2]],file=paste0("EdgeDE_Expt3",names(EdgeDEgenes_Expt3)[2],".csv"))
+
+```
+
+
+
+
+```{r}
+
 
 getwd()
 # Will manually transfer to EdgeR_diffExpressedGenes
@@ -403,9 +527,27 @@ write.csv(edgerSigResultsUpRegExpt3,file='edgerSigResultsUpRegExpt3.csv')
 write.csv(edgerSigResultsDownRegExpt1,file='edgerSigResultsDownRegExpt1.csv')
 write.csv(edgerSigResultsDownRegExpt2,file='edgerSigResultsDownRegExpt2.csv')
 write.csv(edgerSigResultsDownRegExpt3,file='edgerSigResultsDownRegExpt3.csv')
+
+
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+
+```
 
 
 
