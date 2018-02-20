@@ -125,6 +125,21 @@ Expt2_downregInB <- rownames(statSigExpt2[order(statSigExpt2$log2FoldChange, dec
 
 Expt3_upregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt3$log2FoldChange > 1, na.rm=T)], ])
 Expt3_downregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = F)[1:sum(statSigExpt3$log2FoldChange < -1, na.rm=T)], ])
+
+## Edit 20180220 I'll also make three list objects which house these result matrices
+DSq2_resultsTableExpt1 <- list(as.matrix(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = F)[1:sum(statSigExpt1$log2FoldChange < -1, na.rm=T)], ]), as.matrix(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt1$log2FoldChange > 1, na.rm=T)], ]))
+# Names: change "Down IN B" to "OverexpressedWT"/OverExpressedNR - which can be checked using sampleTableExpt1, and can be easily renamed by copying the names from the names(EdgeDEgenes_Expt1) object which I've made below:
+names(DSq2_resultsTableExpt1) <- names(EdgeDEgenes_Expt1)
+
+DSq2_resultsTableExpt2 <- list(as.matrix(statSigExpt2[order(statSigExpt2$log2FoldChange, decreasing = F)[1:sum(statSigExpt2$log2FoldChange < -1, na.rm=T)], ]), as.matrix(statSigExpt2[order(statSigExpt2$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt2$log2FoldChange > 1, na.rm=T)], ]))  
+names(DSq2_resultsTableExpt2) <- names(EdgeDEgenes_Expt2)
+
+DSq2_resultsTableExpt3 <- list(as.matrix(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = F)[1:sum(statSigExpt3$log2FoldChange < -1, na.rm=T)], ]), as.matrix(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt3$log2FoldChange > 1, na.rm=T)], ]))  
+names(DSq2_resultsTableExpt3) <- names(EdgeDEgenes_Expt3)
+
+save(DSq2_resultsTableExpt1,file='DSq2_resultsTableExpt1.RData')
+save(DSq2_resultsTableExpt2,file='DSq2_resultsTableExpt2.RData')
+save(DSq2_resultsTableExpt3,file='DSq2_resultsTableExpt3.RData')
 ```
 
 Convert these up and downregulated gene names to something that can go through PANTHER
@@ -467,6 +482,11 @@ EdgeR_resultsTableExpt3 <- list(edgerSigResultsDownRegExpt3,edgerSigResultsUpReg
 designExpt3
 sampleTableExpt3
 names(EdgeR_resultsTableExpt3) <- c("OverExpressedConCap","OverExpressedInjCap")
+
+# Save objects:
+save(EdgeR_resultsTableExpt1,file="EdgeR_resultsTableExpt1.RData")
+save(EdgeR_resultsTableExpt2,file="EdgeR_resultsTableExpt2.RData")
+save(EdgeR_resultsTableExpt3,file="EdgeR_resultsTableExpt3.RData")
 ```
 
 
@@ -499,6 +519,11 @@ names(EdgeDEgenes_Expt3) <- names(EdgeExpt3)
 
 EdgeDEgenes_Expt1
 
+# Save objects:
+save(EdgeDEgenes_Expt1,file='EdgeDEgenes_Expt1.RData')
+save(EdgeDEgenes_Expt2,file='EdgeDEgenes_Expt2.RData')
+save(EdgeDEgenes_Expt3,file='EdgeDEgenes_Expt3.RData')
+
 getwd()
 # Will manually transfer to EdgeR_diffExpressedGenes
 write.csv(EdgeDEgenes_Expt1[[1]],file=paste0("EdgeDE_Expt1",names(EdgeDEgenes_Expt1)[1],".csv"))
@@ -509,45 +534,121 @@ write.csv(EdgeDEgenes_Expt2[[2]],file=paste0("EdgeDE_Expt2",names(EdgeDEgenes_Ex
 
 write.csv(EdgeDEgenes_Expt3[[1]],file=paste0("EdgeDE_Expt3",names(EdgeDEgenes_Expt3)[1],".csv"))
 write.csv(EdgeDEgenes_Expt3[[2]],file=paste0("EdgeDE_Expt3",names(EdgeDEgenes_Expt3)[2],".csv"))
-
 ```
 
 
-
-
+Calculate overlap between DE genes in EdgeR and DSq2
 ```{r}
+## Expt1
+length(rownames(EdgeR_resultsTableExpt1[[1]])) # 84
+length(rownames(DSq2_resultsTableExpt1[[1]])) #28
+length(na.omit(match(rownames(DSq2_resultsTableExpt1[[1]]),rownames(EdgeR_resultsTableExpt1[[1]]))))
+# 28/28 = 100%, 28/84 = 33%
+length(rownames(DSq2_resultsTableExpt1[[2]])) #49
+length(rownames(EdgeR_resultsTableExpt1[[2]])) #234
+length(na.omit(match(rownames(DSq2_resultsTableExpt1[[2]]),rownames(EdgeR_resultsTableExpt1[[2]]))))
+# 49/49 = 100%, 49/234=21%
 
+## Expt2
+length(rownames(DSq2_resultsTableExpt2[[1]])) #178
+length(rownames(EdgeR_resultsTableExpt2[[1]]))  # 237
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[1]]),rownames(EdgeR_resultsTableExpt2[[1]]))))
+# 177/178 = 99%, 177/237 = 75%
+length(rownames(DSq2_resultsTableExpt2[[2]])) #890
+length(rownames(EdgeR_resultsTableExpt2[[2]]))  # 1020
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[2]]),rownames(EdgeR_resultsTableExpt2[[2]]))))
+# 887/890 = 99%, 887/1020 = 87%
 
-getwd()
-# Will manually transfer to EdgeR_diffExpressedGenes
-write.csv(edgerSigResultsUpRegExpt1,file='edgerSigResultsUpRegExpt1.csv')
-write.csv(edgerSigResultsUpRegExpt2,file='edgerSigResultsUpRegExpt2.csv')
-write.csv(edgerSigResultsUpRegExpt3,file='edgerSigResultsUpRegExpt3.csv')
-
-write.csv(edgerSigResultsDownRegExpt1,file='edgerSigResultsDownRegExpt1.csv')
-write.csv(edgerSigResultsDownRegExpt2,file='edgerSigResultsDownRegExpt2.csv')
-write.csv(edgerSigResultsDownRegExpt3,file='edgerSigResultsDownRegExpt3.csv')
-
-
+## Expt3
+length(rownames(DSq2_resultsTableExpt3[[1]])) #1588
+length(rownames(EdgeR_resultsTableExpt3[[1]]))  # 1636
+length(na.omit(match(rownames(DSq2_resultsTableExpt3[[1]]),rownames(EdgeR_resultsTableExpt3[[1]]))))
+# 1577/1588 = 99%, 1577/1636 = 96%
+length(rownames(DSq2_resultsTableExpt3[[2]])) #1753
+length(rownames(EdgeR_resultsTableExpt3[[2]]))  # 1845
+length(na.omit(match(rownames(DSq2_resultsTableExpt3[[2]]),rownames(EdgeR_resultsTableExpt3[[2]]))))
+# 1738/1753 = 99%, 1738/1845 = 94%
 ```
 
+These are all >99% agreement. This gives me good confidence in the analyses I've done so far, there is nothing so drastically wrong as to throw off the entire analysis. 
 
+I had intended to overlap DSq2 and EdgeR gene lists, but since the overlap is so high, there is very little to be gained from this that I don't get by just using the DSq2 lists. 
 
-
-
-
-
-
-
-
-
-
-
-
-
+Use the results table rownames to find out how many genes are found in common between the experiments
 ```{r}
-
+dim(DSq2_resultsTableExpt2[[1]]) # 178 genes
+dim(DSq2_resultsTableExpt2[[2]]) # 890 genes
+dim(DSq2_resultsTableExpt3[[1]]) # 1588 genes
+dim(DSq2_resultsTableExpt3[[2]]) # 1753 genes
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[1]]),rownames(DSq2_resultsTableExpt3[[1]])))) # Overlap is 8
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[1]]),rownames(DSq2_resultsTableExpt3[[2]])))) # Overlap is 115
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[2]]),rownames(DSq2_resultsTableExpt3[[2]])))) # Overlap is 308
+length(na.omit(match(rownames(DSq2_resultsTableExpt2[[2]]),rownames(DSq2_resultsTableExpt3[[1]])))) # Overlap is 156
 ```
+
+
+
+Now I will use the DEgenes list objects (as opposed to the resultsTable objects) which have the proper geneSymbol and create overlap lists
+Expt1/2/3 overlaps
+```{r}
+length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt2[[1]])))
+# 5
+length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt2[[2]])))
+# 3
+length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[1]])))
+# 0
+length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))
+# 12
+
+length(na.omit(match(DESeqDEGenesExpt1[[2]], DESeqDEGenesExpt2[[1]])))
+# 2
+length(na.omit(match(DESeqDEGenesExpt1[[2]], DESeqDEGenesExpt2[[2]])))
+# 24
+length(na.omit(match(DESeqDEGenesExpt1[[2]], DESeqDEGenesExpt3[[1]])))
+# 5
+length(na.omit(match(DESeqDEGenesExpt1[[2]], DESeqDEGenesExpt3[[2]])))
+# 13
+
+
+length(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt2[[1]])))
+## same list
+length(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt2[[2]])))
+## Mutually exclusive list
+length(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[1]])))
+# 7
+length(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[2]])))
+# 78
+
+length(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt2[[1]])))
+## Mutually exclusive list
+length(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt2[[2]])))
+## same list
+length(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt3[[1]])))
+# 129
+length(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt3[[2]])))
+# 239
+
+## Interesting
+# Experiment3_2 (OverExpressedInjCap) shares 78 genes with Expt2_1 (overExpressedTBud) and 239 genes with Expt2_2 (overExpressedPNT), It also shares 13 genes with Expt1_2 (overexpressed in NR) (n=38 genes) which is a 34% overlap. 
+# Expt2_2 and 3_2 have a high overlap (n=239) but there are also a lot of genes in these groups (n=709 and 1344 respectively) > overlap percentage is 239/709 = 34%. 
+
+write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt3[[2]])))],file='Genes overexpressed in PNT and InjCap.csv')
+write.csv(DESeqDEGenesExpt3[[1]][as.vector(na.omit(match(DESeqDEGenesExpt2[[2]], DESeqDEGenesExpt3[[1]])))],file='Genes overexpressed in PNT and ConCap.csv')
+# This is kind of strange. Overexpressed in PNT relative to the tailbud are found in both InjCap and ConCap
+## Suggests that overexpressed in PNT (n=709) is really a heterogenous group of genes with two separate functions. It's got a larger subgroup which is overexpressed in InjCap (n=239) and a smaller subgroup of genes overexpressed in ConCap (n=129).  
+
+
+write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[2]])))],file='Genes overexpressed in InjCap and Tbud.csv')
+write.csv(DESeqDEGenesExpt3[[1]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[1]])))],file='Genes overexpressed in Tbud and ConCap.csv')
+
+write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))],file='Genes overexpressed in InjCap and WT.csv')
+
+
+length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))
+```
+
+
+
 
 
 
