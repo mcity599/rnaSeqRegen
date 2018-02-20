@@ -642,13 +642,10 @@ write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]],
 write.csv(DESeqDEGenesExpt3[[1]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[1]])))],file='Genes overexpressed in Tbud and ConCap.csv')
 
 write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))],file='Genes overexpressed in InjCap and WT.csv')
-
-
-length(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))
 ```
 
 
 
-
+Use GO to find out what each of the gene subsets are associated with. 
 
 
