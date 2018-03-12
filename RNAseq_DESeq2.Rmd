@@ -126,6 +126,12 @@ Expt2_downregInB <- rownames(statSigExpt2[order(statSigExpt2$log2FoldChange, dec
 Expt3_upregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt3$log2FoldChange > 1, na.rm=T)], ])
 Expt3_downregInB <- rownames(statSigExpt3[order(statSigExpt3$log2FoldChange, decreasing = F)[1:sum(statSigExpt3$log2FoldChange < -1, na.rm=T)], ])
 
+## Edit 20180313
+# After spending some time with PANTHER, it's clear the Expt1 lists are too small to generate anything significant. I will now generate a less stringent set of results for the purpose of building a picture of what is happening in the WT vs NR. This will be used to inform pathway building and as background gene lists (e.g., as a way to semi-exclude genes that appear to be involved in regen but are upreg in NR vs WT).
+# The lowStrin versions will be STATISTICALLY significant, but will have relaxed biological significance (i.e., )
+Expt1lowStrin_OverExpressedNR <- rownames(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt1$log2FoldChange > 0.5, na.rm=T)], ])
+Expt1lowStrin_OverExpressedWT <- rownames(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = F)[1:sum(statSigExpt1$log2FoldChange < -0.5, na.rm=T)], ])
+
 ## Edit 20180220 I'll also make three list objects which house these result matrices
 DSq2_resultsTableExpt1 <- list(as.matrix(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = F)[1:sum(statSigExpt1$log2FoldChange < -1, na.rm=T)], ]), as.matrix(statSigExpt1[order(statSigExpt1$log2FoldChange, decreasing = TRUE)[1:sum(statSigExpt1$log2FoldChange > 1, na.rm=T)], ]))
 # Names: change "Down IN B" to "OverexpressedWT"/OverExpressedNR - which can be checked using sampleTableExpt1, and can be easily renamed by copying the names from the names(EdgeDEgenes_Expt1) object which I've made below:
@@ -140,6 +146,9 @@ names(DSq2_resultsTableExpt3) <- names(EdgeDEgenes_Expt3)
 save(DSq2_resultsTableExpt1,file='DSq2_resultsTableExpt1.RData')
 save(DSq2_resultsTableExpt2,file='DSq2_resultsTableExpt2.RData')
 save(DSq2_resultsTableExpt3,file='DSq2_resultsTableExpt3.RData')
+save(Expt1lowStrin_OverExpressedNR,file='Expt1lowStrin_OverExpressedNR.RData')
+save(Expt1lowStrin_OverExpressedWT,file='Expt1lowStrin_OverExpressedWT.RData')
+
 ```
 
 Convert these up and downregulated gene names to something that can go through PANTHER
@@ -642,6 +651,17 @@ write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]],
 write.csv(DESeqDEGenesExpt3[[1]][as.vector(na.omit(match(DESeqDEGenesExpt2[[1]], DESeqDEGenesExpt3[[1]])))],file='Genes overexpressed in Tbud and ConCap.csv')
 
 write.csv(DESeqDEGenesExpt3[[2]][as.vector(na.omit(match(DESeqDEGenesExpt1[[1]], DESeqDEGenesExpt3[[2]])))],file='Genes overexpressed in InjCap and WT.csv')
+
+# After talking with C, I realise that PNT is a sort of 'noise/maintenance background' set (i.e., it's not regenerating)
+# - in fact, some of these genes may need to be turned off in order to facilitate regeneration.
+## I'll now make a list of e.g., Injcap minus PNT
+
+write.csv(DESeqDEGenesExpt3[[2]][-as.vector(na.omit(match(DESeqDEGenesExpt2[[2]],DESeqDEGenesExpt3[[2]])))],file='Overexpressed in InjCap NOT in PNT.csv')
+write.csv(DESeqDEGenesExpt3[[1]][-as.vector(na.omit(match(DESeqDEGenesExpt2[[2]],DESeqDEGenesExpt3[[1]])))],file='Overexpressed in ConCap NOT in PNT.csv')
+
+write.csv(DESeqDEGenesExpt2[[1]][-as.vector(na.omit(match(DESeqDEGenesExpt3[[1]],DESeqDEGenesExpt2[[1]])))],file='Overexpressed in Tbud NOT in ConCap.csv')
+length(DESeqDEGenesExpt2[[1]][-as.vector(na.omit(match(DESeqDEGenesExpt3[[1]],DESeqDEGenesExpt2[[1]])))]) # 118
+length(DESeqDEGenesExpt2[[1]])
 ```
 
 
