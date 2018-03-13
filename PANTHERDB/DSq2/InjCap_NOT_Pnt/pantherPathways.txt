@@ -1,0 +1,18 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER Pathways	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (987)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+Unclassified (UNCLASSIFIED)	21448	786	875.59	-	.90	9.19E-16	1.47E-13
+DNA replication (P00017)	27	12	1.10	+	10.89	1.82E-08	1.46E-06
+Alzheimer disease-presenilin pathway (P00004)	137	19	5.59	+	3.40	1.22E-05	6.52E-04
+Wnt signaling pathway (P00057)	325	31	13.27	+	2.34	4.14E-05	1.66E-03
+Axon guidance mediated by Slit/Robo (P00008)	26	7	1.06	+	6.59	2.44E-04	7.81E-03
+Hedgehog signaling pathway (P00025)	25	6	1.02	+	5.88	1.14E-03	3.03E-02
+Gonadotropin-releasing hormone receptor pathway (P06664)	294	24	12.00	+	2.00	2.08E-03	4.75E-02

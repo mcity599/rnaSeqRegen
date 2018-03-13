@@ -1,0 +1,10 @@
+XENTR|Xenbase=XB-GENE-948769|UniProtKB=Q28HP6	snap25	Synaptosomal-associated protein;snap25;ortholog	SYNAPTOSOMAL-ASSOCIATED PROTEIN 25 (PTHR19305:SF5)	SNARE protein(PC00034)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-995621|UniProtKB=L7N2J9	gria1	Glutamate receptor, ionotropic, AMPA 1;gria1;ortholog	GLUTAMATE RECEPTOR 1 (PTHR18966:SF157)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-868398|UniProtKB=F7ACX9	camk2b	Uncharacterized protein (Fragment);camk2b;ortholog	CALCIUM/CALMODULIN-DEPENDENT PROTEIN KINASE TYPE II SUBUNIT BETA (PTHR24347:SF403)		Xenopus tropicalis
+XENTR|Ensembl=ENSXETG00000033364|UniProtKB=F6YS49	slc17a8	Uncharacterized protein (Fragment);slc17a8;ortholog	VESICULAR GLUTAMATE TRANSPORTER 3 (PTHR11662:SF207)	cation transporter(PC00068)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-975313|UniProtKB=F7CSQ4	slc1a3	Amino acid transporter;slc1a3;ortholog	EXCITATORY AMINO ACID TRANSPORTER 1 (PTHR11958:SF24)	cation transporter(PC00068)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5838893|UniProtKB=F6T3C9	gria4	Uncharacterized protein;gria4;ortholog	GLUTAMATE RECEPTOR 4 (PTHR18966:SF100)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5860197|UniProtKB=Q0IHY8	grik5	Glutamate receptor KA2;grik5;ortholog	GLUTAMATE RECEPTOR-RELATED (PTHR18966:SF357)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-868353|UniProtKB=F6YQ17	camk2a	Uncharacterized protein;camk2a;ortholog	CALCIUM/CALMODULIN-DEPENDENT PROTEIN KINASE TYPE II SUBUNIT ALPHA (PTHR24347:SF384)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5788095|UniProtKB=F7AFY3	vamp2	Uncharacterized protein (Fragment);vamp2;ortholog	VESICLE-ASSOCIATED MEMBRANE PROTEIN 2 (PTHR45701:SF5)		Xenopus tropicalis
+XENTR|Ensembl=ENSXETG00000031503|UniProtKB=F7DEQ2	grik5	Uncharacterized protein (Fragment);grik5;ortholog	GLUTAMATE RECEPTOR IONOTROPIC, KAINATE 5 (PTHR18966:SF351)		Xenopus tropicalis

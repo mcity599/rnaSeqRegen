@@ -1,0 +1,78 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER GO-Slim Biological Process	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (987)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+nucleobase-containing compound metabolic process (GO:0006139)	2712	258	110.71	+	2.33	1.08E-36	2.60E-34
+cell cycle (GO:0007049)	701	109	28.62	+	3.81	5.83E-30	6.99E-28
+nitrogen compound metabolic process (GO:0006807)	2535	227	103.49	+	2.19	3.22E-28	2.58E-26
+metabolic process (GO:0008152)	6160	408	251.48	+	1.62	2.53E-26	1.52E-24
+DNA metabolic process (GO:0006259)	349	70	14.25	+	4.91	5.38E-25	2.58E-23
+primary metabolic process (GO:0044238)	4788	337	195.46	+	1.72	8.07E-25	3.23E-23
+RNA metabolic process (GO:0016070)	1511	153	61.68	+	2.48	1.87E-23	6.41E-22
+DNA replication (GO:0006260)	130	40	5.31	+	7.54	2.68E-20	8.04E-19
+Unclassified (UNCLASSIFIED)	12179	365	497.19	-	.73	1.14E-16	3.05E-15
+developmental process (GO:0032502)	1558	138	63.60	+	2.17	1.59E-16	3.82E-15
+cellular process (GO:0009987)	8713	482	355.70	+	1.36	9.49E-16	2.07E-14
+transcription, DNA-dependent (GO:0006351)	985	97	40.21	+	2.41	3.58E-14	7.15E-13
+biosynthetic process (GO:0009058)	1759	140	71.81	+	1.95	2.99E-13	5.13E-12
+mitosis (GO:0007067)	237	41	9.68	+	4.24	2.85E-13	5.27E-12
+chromosome segregation (GO:0007059)	98	25	4.00	+	6.25	1.09E-11	1.74E-10
+transcription from RNA polymerase II promoter (GO:0006366)	795	71	32.46	+	2.19	5.92E-09	8.88E-08
+transmembrane receptor protein tyrosine kinase signaling pathway (GO:0007169)	145	25	5.92	+	4.22	1.31E-08	1.86E-07
+pattern specification process (GO:0007389)	127	23	5.18	+	4.44	2.23E-08	2.98E-07
+regulation of transcription from RNA polymerase II promoter (GO:0006357)	634	59	25.88	+	2.28	2.57E-08	3.25E-07
+anatomical structure morphogenesis (GO:0009653)	152	24	6.21	+	3.87	1.11E-07	1.34E-06
+embryo development (GO:0009790)	112	20	4.57	+	4.37	2.23E-07	2.43E-06
+organelle organization (GO:0006996)	1286	94	52.50	+	1.79	2.14E-07	2.44E-06
+regulation of nucleobase-containing compound metabolic process (GO:0019219)	510	48	20.82	+	2.31	3.96E-07	3.96E-06
+ectoderm development (GO:0007398)	229	29	9.35	+	3.10	3.91E-07	4.08E-06
+chromatin organization (GO:0006325)	276	32	11.27	+	2.84	5.94E-07	5.70E-06
+mesoderm development (GO:0007498)	291	33	11.88	+	2.78	6.25E-07	5.77E-06
+DNA repair (GO:0006281)	159	23	6.49	+	3.54	8.05E-07	7.15E-06
+cellular component organization or biogenesis (GO:0071840)	2211	138	90.26	+	1.53	1.41E-06	1.20E-05
+segment specification (GO:0007379)	94	16	3.84	+	4.17	6.11E-06	5.06E-05
+cellular component organization (GO:0016043)	2077	127	84.79	+	1.50	1.16E-05	9.25E-05
+DNA recombination (GO:0006310)	48	11	1.96	+	5.61	1.59E-05	1.23E-04
+cell differentiation (GO:0030154)	577	47	23.56	+	2.00	2.25E-05	1.69E-04
+regulation of phosphate metabolic process (GO:0019220)	590	46	24.09	+	1.91	7.06E-05	5.13E-04
+cell proliferation (GO:0008283)	72	12	2.94	+	4.08	1.04E-04	7.34E-04
+mRNA processing (GO:0006397)	242	24	9.88	+	2.43	1.64E-04	1.09E-03
+meiosis (GO:0007126)	53	10	2.16	+	4.62	1.59E-04	1.09E-03
+regulation of cell cycle (GO:0051726)	244	24	9.96	+	2.41	1.79E-04	1.16E-03
+digestive tract mesoderm development (GO:0007502)	18	6	.73	+	8.17	2.63E-04	1.66E-03
+G-protein coupled receptor signaling pathway (GO:0007186)	634	9	25.88	-	.35	2.74E-04	1.69E-03
+MAPK cascade (GO:0000165)	383	32	15.64	+	2.05	2.91E-04	1.74E-03
+sensory perception of smell (GO:0007608)	220	0	8.98	-	 < 0.01	3.11E-04	1.82E-03
+system development (GO:0048731)	449	36	18.33	+	1.96	3.20E-04	1.83E-03
+RNA splicing, via transesterification reactions (GO:0000375)	138	16	5.63	+	2.84	3.76E-04	2.10E-03
+mRNA splicing, via spliceosome (GO:0000398)	161	17	6.57	+	2.59	6.67E-04	3.64E-03
+chromatin remodeling (GO:0006338)	32	7	1.31	+	5.36	7.16E-04	3.82E-03
+anterior/posterior axis specification (GO:0009948)	16	5	.65	+	7.65	1.11E-03	5.77E-03
+rRNA metabolic process (GO:0016072)	112	13	4.57	+	2.84	1.28E-03	6.52E-03
+vesicle-mediated transport (GO:0016192)	716	13	29.23	-	.44	1.31E-03	6.53E-03
+tRNA metabolic process (GO:0006399)	115	13	4.69	+	2.77	1.58E-03	7.76E-03
+phosphate-containing compound metabolic process (GO:0006796)	1793	101	73.20	+	1.38	1.65E-03	7.90E-03
+RNA catabolic process (GO:0006401)	76	10	3.10	+	3.22	1.96E-03	9.24E-03
+phosphate ion transport (GO:0006817)	19	5	.78	+	6.45	2.10E-03	9.67E-03
+nucleobase-containing compound transport (GO:0015931)	97	11	3.96	+	2.78	3.45E-03	1.56E-02
+response to stress (GO:0006950)	550	37	22.45	+	1.65	4.85E-03	2.15E-02
+negative regulation of apoptotic process (GO:0043066)	103	11	4.20	+	2.62	5.21E-03	2.27E-02
+neurological system process (GO:0050877)	974	23	39.76	-	.58	5.81E-03	2.49E-02
+nuclear transport (GO:0051169)	105	11	4.29	+	2.57	5.93E-03	2.50E-02
+nervous system development (GO:0007399)	355	26	14.49	+	1.79	7.07E-03	2.93E-02
+sensory perception of chemical stimulus (GO:0007606)	283	3	11.55	-	.26	8.16E-03	3.21E-02
+sulfur compound metabolic process (GO:0006790)	80	9	3.27	+	2.76	8.16E-03	3.26E-02
+protein methylation (GO:0006479)	52	7	2.12	+	3.30	8.08E-03	3.29E-02
+cellular component biogenesis (GO:0044085)	754	46	30.78	+	1.49	9.38E-03	3.57E-02
+cellular amino acid metabolic process (GO:0006520)	242	19	9.88	+	1.92	9.38E-03	3.63E-02
+RNA localization (GO:0006403)	68	8	2.78	+	2.88	9.75E-03	3.66E-02
+cellular component movement (GO:0006928)	449	30	18.33	+	1.64	1.20E-02	4.43E-02
+sensory perception of pain (GO:0019233)	10	3	.41	+	7.35	1.28E-02	4.66E-02
+regulation of biological process (GO:0050789)	3442	113	140.52	-	.80	1.34E-02	4.80E-02

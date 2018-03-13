@@ -1,0 +1,15 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER Pathways	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (132)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+Pyrimidine Metabolism (P02771)	10	3	.05	+	54.95	4.30E-05	1.72E-03
+Nicotinic acetylcholine receptor signaling pathway (P00044)	118	7	.64	+	10.87	5.56E-06	4.45E-04
+Integrin signalling pathway (P00034)	185	9	1.01	+	8.91	1.19E-06	1.90E-04
+Unclassified (UNCLASSIFIED)	21448	100	117.10	-	.85	2.58E-05	1.37E-03

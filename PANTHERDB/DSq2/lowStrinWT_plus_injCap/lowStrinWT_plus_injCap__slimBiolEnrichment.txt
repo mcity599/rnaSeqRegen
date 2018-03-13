@@ -1,0 +1,37 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER GO-Slim Biological Process	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (131)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+skeletal system development (GO:0001501)	13	2	.07	+	28.39	2.89E-03	3.15E-02
+DNA recombination (GO:0006310)	48	4	.26	+	15.38	1.78E-04	2.68E-03
+DNA replication (GO:0006260)	130	9	.70	+	12.78	6.60E-08	2.64E-06
+DNA metabolic process (GO:0006259)	349	21	1.89	+	11.11	8.76E-16	2.10E-13
+meiosis (GO:0007126)	53	3	.29	+	10.45	3.44E-03	3.30E-02
+chromosome segregation (GO:0007059)	98	5	.53	+	9.42	2.42E-04	3.41E-03
+DNA repair (GO:0006281)	159	8	.86	+	9.29	3.54E-06	7.73E-05
+chromatin organization (GO:0006325)	276	12	1.50	+	8.02	5.52E-08	3.31E-06
+regulation of cell cycle (GO:0051726)	244	7	1.32	+	5.29	4.34E-04	5.78E-03
+cell cycle (GO:0007049)	701	18	3.80	+	4.74	6.36E-08	3.05E-06
+regulation of nucleobase-containing compound metabolic process (GO:0019219)	510	9	2.76	+	3.26	2.04E-03	2.58E-02
+organelle organization (GO:0006996)	1286	22	6.97	+	3.16	1.88E-06	5.64E-05
+response to stress (GO:0006950)	550	9	2.98	+	3.02	3.34E-03	3.34E-02
+nitrogen compound metabolic process (GO:0006807)	2535	40	13.74	+	2.91	3.38E-10	2.70E-08
+nucleobase-containing compound metabolic process (GO:0006139)	2712	42	14.69	+	2.86	1.81E-10	2.18E-08
+biosynthetic process (GO:0009058)	1759	25	9.53	+	2.62	8.81E-06	1.63E-04
+cellular component organization (GO:0016043)	2077	29	11.25	+	2.58	2.03E-06	5.43E-05
+RNA metabolic process (GO:0016070)	1511	21	8.19	+	2.56	7.04E-05	1.13E-03
+cellular component organization or biogenesis (GO:0071840)	2211	30	11.98	+	2.50	2.32E-06	5.56E-05
+transcription, DNA-dependent (GO:0006351)	985	13	5.34	+	2.44	2.90E-03	3.02E-02
+developmental process (GO:0032502)	1558	18	8.44	+	2.13	2.16E-03	2.47E-02
+primary metabolic process (GO:0044238)	4788	51	25.94	+	1.97	4.62E-07	1.58E-05
+metabolic process (GO:0008152)	6160	57	33.38	+	1.71	7.69E-06	1.54E-04
+cellular process (GO:0009987)	8713	72	47.21	+	1.53	1.43E-05	2.46E-04
+Unclassified (UNCLASSIFIED)	12179	48	65.99	-	.73	2.05E-03	2.46E-02
+system process (GO:0003008)	1069	0	5.79	-	 < 0.01	4.62E-03	4.27E-02

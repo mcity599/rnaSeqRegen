@@ -1,0 +1,5 @@
+XENTR|Xenbase=XB-GENE-984239|UniProtKB=Q0VFM6	gmppa	Mannose-1-phosphate guanyltransferase alpha;gmppa;ortholog	MANNOSE-1-PHOSPHATE GUANYLTRANSFERASE ALPHA (PTHR22572:SF104)	guanyl-nucleotide exchange factor(PC00113);nucleotidyltransferase(PC00174);translation initiation factor(PC00224)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-922650|UniProtKB=Q68EQ1	gmppb	Mannose-1-phosphate guanyltransferase beta;gmppb;ortholog	MANNOSE-1-PHOSPHATE GUANYLTRANSFERASE BETA (PTHR22572:SF15)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-998969|UniProtKB=F7E0M0	pmm2	Phosphomannomutase (Fragment);pmm2;ortholog	PHOSPHOMANNOMUTASE 1 (PTHR10466:SF1)	mutase(PC00160)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-974466|UniProtKB=F6X676	pmm1	Phosphomannomutase (Fragment);pmm1;ortholog	PHOSPHOMANNOMUTASE 2 (PTHR10466:SF2)	mutase(PC00160)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-943015|UniProtKB=Q6P621	gmds	GDP-mannose 4,6-dehydratase (Fragment);gmds;ortholog	GDP-MANNOSE 4,6 DEHYDRATASE (PTHR43715:SF2)	dehydratase(PC00091);epimerase/racemase(PC00096);oxidoreductase(PC00176)	Xenopus tropicalis

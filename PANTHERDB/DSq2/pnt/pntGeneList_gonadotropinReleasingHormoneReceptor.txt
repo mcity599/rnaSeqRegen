@@ -1,0 +1,20 @@
+XENTR|Xenbase=XB-GENE-492543|UniProtKB=F6YT71	tuba1b	Tubulin alpha chain;tuba1b;ortholog	TUBULIN ALPHA-1A CHAIN (PTHR11588:SF133)	tubulin(PC00228)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-481336|UniProtKB=F7AFE7	isl1	ISL LIM homeobox 1;isl1;ortholog	INSULIN GENE ENHANCER PROTEIN ISL-1 (PTHR24204:SF4)	homeodomain transcription factor(PC00119);nucleic acid binding(PC00171);zinc finger transcription factor(PC00244)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-486296|UniProtKB=F6VV27	fst	Uncharacterized protein;fst;ortholog	FOLLISTATIN (PTHR10913:SF6)	protease inhibitor(PC00191)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-868398|UniProtKB=F7ACX9	camk2b	Uncharacterized protein (Fragment);camk2b;ortholog	CALCIUM/CALMODULIN-DEPENDENT PROTEIN KINASE TYPE II SUBUNIT BETA (PTHR24347:SF403)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-485441|UniProtKB=Q68FA6	pitx1	Homeobox protein;pitx1;ortholog	PITUITARY HOMEOBOX 1 (PTHR45882:SF1)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-479134|UniProtKB=A9JTV9	bmp6	Bmp6 protein;bmp6;ortholog	BONE MORPHOGENETIC PROTEIN 6 (PTHR11848:SF137)	growth factor(PC00112)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5823874|UniProtKB=F6SLM7	cacna1s	Calcium channel, voltage-dependent, L type, alpha 1S subunit;cacna1s;ortholog	VOLTAGE-DEPENDENT L-TYPE CALCIUM CHANNEL SUBUNIT ALPHA-1S (PTHR45628:SF9)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-955776|UniProtKB=F6ZCE6	jund	Jun D proto-oncogene;jund;ortholog	TRANSCRIPTION FACTOR JUN-D (PTHR11462:SF7)	basic leucine zipper transcription factor(PC00056);nucleic acid binding(PC00171)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-490008|UniProtKB=Q2QLF5	cav1	Caveolin;CAV1;ortholog	CAVEOLIN-1 (PTHR10844:SF18)	G-protein modulator(PC00022);membrane traffic protein(PC00150);structural protein(PC00211);transmembrane receptor regulatory/adaptor protein(PC00226)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-480560|UniProtKB=F6ZYQ1	tgfb2	Transforming growth factor beta 2;tgfb2;ortholog	TRANSFORMING GROWTH FACTOR BETA-2 (PTHR11848:SF141)	growth factor(PC00112)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-482036|UniProtKB=F7BXX1	srf	Serum response factor;srf;ortholog	SERUM RESPONSE FACTOR (PTHR11945:SF221)	MADS box transcription factor(PC00250)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-976418|UniProtKB=A9JSV8	prkab2	LOC100127782 protein;prkab2;ortholog	5'-AMP-ACTIVATED PROTEIN KINASE SUBUNIT BETA-2 (PTHR10343:SF83)	kinase modulator(PC00140)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-961282|UniProtKB=Q6DF43	gng2	Guanine nucleotide-binding protein subunit gamma;gng2;ortholog	GUANINE NUCLEOTIDE-BINDING PROTEIN G(I)/G(S)/G(O) SUBUNIT GAMMA-2 (PTHR13809:SF25)	heterotrimeric G-protein(PC00117)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-6045753|UniProtKB=F7BGK4	plcb1	Phosphoinositide phospholipase C;plcb1;ortholog	1-PHOSPHATIDYLINOSITOL 4,5-BISPHOSPHATE PHOSPHODIESTERASE BETA-1 (PTHR10336:SF12)	calcium-binding protein(PC00060);guanyl-nucleotide exchange factor(PC00113);phospholipase(PC00186);signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5753317|UniProtKB=F7BQB0	map3k13	Mitogen-activated protein kinase kinase kinase;map3k13;ortholog	MITOGEN-ACTIVATED PROTEIN KINASE KINASE KINASE 13 (PTHR44329:SF14)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5963049|UniProtKB=F6VKS6	syt4	Uncharacterized protein (Fragment);syt4;ortholog	SYNAPTOTAGMIN-4 (PTHR10024:SF114)	membrane trafficking regulatory protein(PC00151)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-482768|UniProtKB=F7BI24	map3k12	Mitogen-activated protein kinase kinase kinase 12;map3k12;ortholog	MITOGEN-ACTIVATED PROTEIN KINASE KINASE KINASE 12 (PTHR44329:SF17)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-1010726|UniProtKB=F6TAZ5	prkag1	Uncharacterized protein;prkag1;ortholog	5'-AMP-ACTIVATED PROTEIN KINASE SUBUNIT GAMMA-2 (PTHR13780:SF35)	kinase modulator(PC00140)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-1000290|UniProtKB=F7EBM1	adipoq	Uncharacterized protein (Fragment);adipoq;ortholog	ADIPONECTIN (PTHR15427:SF20)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-954296|UniProtKB=Q0V9W5	scg2	Secretogranin II;scg2;ortholog	SECRETOGRANIN-2 (PTHR15119:SF0)		Xenopus tropicalis

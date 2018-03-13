@@ -1,0 +1,27 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER GO-Slim Biological Process	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (303)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+muscle contraction (GO:0006936)	114	22	1.43	+	15.40	1.83E-18	4.39E-16
+muscle organ development (GO:0007517)	37	4	.46	+	8.63	1.62E-03	3.00E-02
+cellular amino acid catabolic process (GO:0009063)	68	5	.85	+	5.87	2.12E-03	3.64E-02
+steroid metabolic process (GO:0008202)	101	7	1.27	+	5.53	3.99E-04	8.70E-03
+cellular amino acid metabolic process (GO:0006520)	242	13	3.03	+	4.29	1.94E-05	5.18E-04
+mesoderm development (GO:0007498)	291	13	3.65	+	3.56	1.17E-04	2.82E-03
+cellular component morphogenesis (GO:0032989)	490	21	6.14	+	3.42	1.85E-06	6.34E-05
+ion transport (GO:0006811)	438	15	5.49	+	2.73	5.73E-04	1.15E-02
+system process (GO:0003008)	1069	35	13.40	+	2.61	3.67E-07	2.94E-05
+lipid metabolic process (GO:0006629)	416	13	5.21	+	2.49	2.85E-03	4.27E-02
+developmental process (GO:0032502)	1558	44	19.53	+	2.25	8.40E-07	5.04E-05
+single-multicellular organism process (GO:0044707)	1712	46	21.46	+	2.14	1.50E-06	7.20E-05
+multicellular organismal process (GO:0032501)	1717	46	21.52	+	2.14	1.57E-06	6.30E-05
+cell communication (GO:0007154)	3045	57	38.16	+	1.49	2.23E-03	3.57E-02
+cellular process (GO:0009987)	8713	148	109.20	+	1.36	5.92E-06	1.77E-04
+Unclassified (UNCLASSIFIED)	12179	107	152.63	-	.70	1.67E-07	2.00E-05

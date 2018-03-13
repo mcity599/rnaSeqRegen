@@ -1,0 +1,25 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER Pathways	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (639)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+Pyrimidine Metabolism (P02771)	10	4	.26	+	15.13	3.55E-04	5.68E-03
+Glycolysis (P00024)	20	7	.53	+	13.24	4.12E-06	1.65E-04
+Ionotropic glutamate receptor pathway (P00037)	51	10	1.35	+	7.42	3.30E-06	1.76E-04
+Synaptic vesicle trafficking (P05734)	33	5	.87	+	5.73	2.77E-03	3.41E-02
+Metabotropic glutamate receptor group III pathway (P00039)	70	10	1.85	+	5.41	3.89E-05	7.78E-04
+Cadherin signaling pathway (P00012)	140	16	3.70	+	4.32	2.93E-06	2.34E-04
+Nicotinic acetylcholine receptor signaling pathway (P00044)	118	13	3.12	+	4.17	3.49E-05	9.31E-04
+Cytoskeletal regulation by Rho GTPase (P00016)	83	9	2.19	+	4.10	6.11E-04	8.15E-03
+Alzheimer disease-presenilin pathway (P00004)	137	14	3.62	+	3.87	3.78E-05	8.64E-04
+Integrin signalling pathway (P00034)	185	18	4.89	+	3.68	5.77E-06	1.85E-04
+Gonadotropin-releasing hormone receptor pathway (P06664)	294	20	7.77	+	2.57	2.06E-04	3.67E-03
+Wnt signaling pathway (P00057)	325	21	8.59	+	2.44	3.91E-04	5.69E-03
+Inflammation mediated by chemokine and cytokine signaling pathway (P00031)	221	14	5.84	+	2.40	3.26E-03	3.73E-02
+Unclassified (UNCLASSIFIED)	21448	482	566.87	-	.85	2.75E-20	4.40E-18

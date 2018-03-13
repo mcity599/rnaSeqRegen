@@ -1,0 +1,16 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER Pathways	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (131)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+Tetrahydrofolate biosynthesis (P02742)	6	2	.03	+	61.52	7.90E-04	3.16E-02
+Formyltetrahydroformate biosynthesis (P02743)	9	2	.05	+	41.01	1.54E-03	4.91E-02
+DNA replication (P00017)	27	3	.15	+	20.51	5.58E-04	2.98E-02
+Alzheimer disease-presenilin pathway (P00004)	137	7	.74	+	9.43	1.34E-05	2.14E-03
+Unclassified (UNCLASSIFIED)	21448	102	116.21	-	.88	4.25E-04	3.40E-02

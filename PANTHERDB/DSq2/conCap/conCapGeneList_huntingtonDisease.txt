@@ -1,0 +1,21 @@
+XENTR|Xenbase=XB-GENE-491938|UniProtKB=Q6DIV8	acta1	Actin, alpha 1, skeletal muscle;acta1;ortholog	ACTIN, ALPHA SKELETAL MUSCLE (PTHR11937:SF193)	actin and actin related protein(PC00039)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-992741|UniProtKB=F6X9P6	grin2a	Glutamate receptor, ionotropic, N-methyl D-aspartate 2A;grin2a;ortholog	GLUTAMATE RECEPTOR IONOTROPIC, NMDA 2A (PTHR18966:SF407)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-953475|UniProtKB=F7A9Q3	tp53i3	Uncharacterized protein;tp53i3;ortholog	QUINONE OXIDOREDUCTASE PIG3 (PTHR43006:SF2)	dehydrogenase(PC00092);reductase(PC00198)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-482797|UniProtKB=F6R1R1	casp6	Uncharacterized protein;casp6;ortholog	CASPASE-6 (PTHR10454:SF206)	cysteine protease(PC00081);protease inhibitor(PC00191)	Xenopus tropicalis
+XENTR|Ensembl=ENSXETG00000033975|UniProtKB=Q28HJ8	gapdh	Glyceraldehyde-3-phosphate dehydrogenase;gapdh;ortholog	GLYCERALDEHYDE-3-PHOSPHATE DEHYDROGENASE (PTHR10836:SF76)	dehydrogenase(PC00092)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-941174|UniProtKB=Q28I19	tnfaip8	Tumor necrosis factor alpha-induced protein 8;tnfaip8;ortholog	TUMOR NECROSIS FACTOR ALPHA-INDUCED PROTEIN 8 (PTHR12757:SF3)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-954481|UniProtKB=F6WC87	cltb	Clathrin light chain (Fragment);cltb;ortholog	CLATHRIN LIGHT CHAIN B (PTHR10639:SF7)	vesicle coat protein(PC00235)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-854694|UniProtKB=F6XSE5	dnai2	Dynein, axonemal, intermediate chain 2;dnai2;ortholog	DYNEIN INTERMEDIATE CHAIN 2, AXONEMAL (PTHR12442:SF7)	microtubule family cytoskeletal protein(PC00157)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-990196|UniProtKB=F6TJS4	capn1	Uncharacterized protein;capn1;ortholog	CALPAIN-1 CATALYTIC SUBUNIT (PTHR10183:SF284)	annexin(PC00050);calmodulin(PC00061);cysteine protease(PC00081)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-494089|UniProtKB=F6ZRU2	arpc5	Actin-related protein 2/3 complex subunit 5;arpc5;ortholog	ACTIN-RELATED PROTEIN 2/3 COMPLEX SUBUNIT 5 (PTHR12644:SF1)	actin family cytoskeletal protein(PC00041)	Xenopus tropicalis
+XENTR|Ensembl=ENSXETG00000032748|UniProtKB=F7A564	casp8	Uncharacterized protein (Fragment);casp8;ortholog	CASPASE-8 (PTHR10454:SF162)	cysteine protease(PC00081);protease inhibitor(PC00191)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-854851|UniProtKB=Q6DIF1	dnal4	Dynein, axonemal, light chain 4;dnal4;ortholog	DYNEIN LIGHT CHAIN 4, AXONEMAL (PTHR11886:SF2)	enzyme modulator(PC00095);microtubule family cytoskeletal protein(PC00157)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-999089|UniProtKB=Q28HX4	ift57	Intraflagellar transport protein 57 homolog;ift57;ortholog	INTRAFLAGELLAR TRANSPORT PROTEIN 57 HOMOLOG (PTHR16011:SF0)	cytoskeletal protein(PC00085);enzyme modulator(PC00095)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-948345|UniProtKB=F6YA81	capn9	Uncharacterized protein;capn9;ortholog	CALPAIN-9 (PTHR10183:SF385)	annexin(PC00050);calmodulin(PC00061);cysteine protease(PC00081)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-920944|UniProtKB=F7EDP6	map3k10	Mitogen-activated protein kinase kinase kinase 10;map3k10;ortholog	MITOGEN-ACTIVATED PROTEIN KINASE KINASE KINASE 10 (PTHR44329:SF39)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-920785|UniProtKB=F6S8G4	capn8	Uncharacterized protein (Fragment);capn8;ortholog	CALPAIN-8 (PTHR10183:SF374)	annexin(PC00050);calmodulin(PC00061);cysteine protease(PC00081)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-486024|UniProtKB=F7DAP0	ap2a2	Uncharacterized protein (Fragment);ap2a2;ortholog	AP-2 COMPLEX SUBUNIT ALPHA-2 (PTHR22780:SF30)	transmembrane receptor regulatory/adaptor protein(PC00226)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-966820|UniProtKB=F7EK13	cryz	Uncharacterized protein;cryz;ortholog	QUINONE OXIDOREDUCTASE (PTHR44154:SF1)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-969447|UniProtKB=Q0IIR4	tubb4b	Tubulin beta chain;tubb4b;ortholog	TUBULIN BETA-4B CHAIN (PTHR11588:SF247)	tubulin(PC00228)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5866533|UniProtKB=F6YAL7	prodh	Proline dehydrogenase (oxidase) 1;prodh;ortholog	PROLINE DEHYDROGENASE 1, MITOCHONDRIAL (PTHR13914:SF0)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-490410|UniProtKB=F6URC6	arpc1b	Uncharacterized protein;arpc1b;ortholog	ACTIN-RELATED PROTEIN 2/3 COMPLEX SUBUNIT 1B (PTHR10709:SF10)	actin family cytoskeletal protein(PC00041)	Xenopus tropicalis

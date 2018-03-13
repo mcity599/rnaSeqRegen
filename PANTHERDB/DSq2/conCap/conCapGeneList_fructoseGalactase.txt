@@ -1,0 +1,5 @@
+XENTR|Xenbase=XB-GENE-6453444|UniProtKB=F6XMU9	galt	Uncharacterized protein (Fragment);galt;ortholog	GALACTOSE-1-PHOSPHATE URIDYLYLTRANSFERASE (PTHR11943:SF1)	nucleotidyltransferase(PC00174)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-954209|UniProtKB=Q6DJ33	galk2	Galactokinase 2;galk2;ortholog	N-ACETYLGALACTOSAMINE KINASE (PTHR10457:SF7)	carbohydrate kinase(PC00065)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5817381|UniProtKB=F7E7F3	hk2	Uncharacterized protein;hk2;ortholog	HEXOKINASE-2 (PTHR19443:SF4)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5925393|UniProtKB=F6PJ53	aldob	Fructose-bisphosphate aldolase (Fragment);aldob;ortholog	FRUCTOSE-BISPHOSPHATE ALDOLASE B (PTHR11627:SF2)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-969127|UniProtKB=F7EJ79	galk1	Uncharacterized protein (Fragment);galk1;ortholog	GALACTOKINASE (PTHR10457:SF6)	carbohydrate kinase(PC00065)	Xenopus tropicalis

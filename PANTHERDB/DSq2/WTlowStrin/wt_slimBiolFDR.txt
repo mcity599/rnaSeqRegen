@@ -1,0 +1,44 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER GO-Slim Biological Process	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (190)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+DNA metabolic process (GO:0006259)	349	23	2.74	+	8.39	2.09E-14	5.02E-12
+nucleobase-containing compound metabolic process (GO:0006139)	2712	51	21.31	+	2.39	2.81E-09	3.38E-07
+nitrogen compound metabolic process (GO:0006807)	2535	48	19.92	+	2.41	7.99E-09	6.40E-07
+cell cycle (GO:0007049)	701	22	5.51	+	3.99	5.68E-08	3.41E-06
+chromatin organization (GO:0006325)	276	14	2.17	+	6.45	7.22E-08	3.47E-06
+organelle organization (GO:0006996)	1286	29	10.11	+	2.87	4.05E-07	1.62E-05
+DNA replication (GO:0006260)	130	9	1.02	+	8.81	1.51E-06	4.53E-05
+cellular component organization or biogenesis (GO:0071840)	2211	39	17.38	+	2.24	1.76E-06	4.68E-05
+cellular component organization (GO:0016043)	2077	38	16.32	+	2.33	1.50E-06	5.13E-05
+regulation of cell cycle (GO:0051726)	244	11	1.92	+	5.74	5.56E-06	1.33E-04
+DNA repair (GO:0006281)	159	9	1.25	+	7.20	7.18E-06	1.57E-04
+primary metabolic process (GO:0044238)	4788	64	37.63	+	1.70	9.24E-06	1.85E-04
+metabolic process (GO:0008152)	6160	76	48.41	+	1.57	1.23E-05	2.26E-04
+developmental process (GO:0032502)	1558	29	12.24	+	2.37	1.88E-05	3.00E-04
+chromosome segregation (GO:0007059)	98	7	.77	+	9.09	1.87E-05	3.21E-04
+biosynthetic process (GO:0009058)	1759	30	13.82	+	2.17	6.43E-05	9.65E-04
+RNA metabolic process (GO:0016070)	1511	27	11.87	+	2.27	6.88E-05	9.72E-04
+meiosis (GO:0007126)	53	5	.42	+	12.00	8.96E-05	1.19E-03
+cellular process (GO:0009987)	8713	95	68.47	+	1.39	1.01E-04	1.27E-03
+skeletal system development (GO:0001501)	13	3	.10	+	29.36	2.42E-04	2.91E-03
+transcription, DNA-dependent (GO:0006351)	985	19	7.74	+	2.45	3.39E-04	3.88E-03
+DNA recombination (GO:0006310)	48	4	.38	+	10.60	7.24E-04	7.90E-03
+cell differentiation (GO:0030154)	577	13	4.53	+	2.87	7.73E-04	8.07E-03
+system development (GO:0048731)	449	11	3.53	+	3.12	1.02E-03	1.02E-02
+response to stress (GO:0006950)	550	12	4.32	+	2.78	1.60E-03	1.53E-02
+nervous system development (GO:0007399)	355	9	2.79	+	3.23	2.32E-03	2.14E-02
+transmembrane receptor protein serine/threonine kinase signaling pathway (GO:0007178)	69	4	.54	+	7.38	2.56E-03	2.20E-02
+regulation of nucleobase-containing compound metabolic process (GO:0019219)	510	11	4.01	+	2.74	2.71E-03	2.24E-02
+chromatin remodeling (GO:0006338)	32	3	.25	+	11.93	2.54E-03	2.26E-02
+cell proliferation (GO:0008283)	72	4	.57	+	7.07	2.97E-03	2.37E-02
+mitosis (GO:0007067)	237	7	1.86	+	3.76	3.12E-03	2.42E-02
+Unclassified (UNCLASSIFIED)	12179	76	95.71	-	.79	4.47E-03	3.35E-02
+reproduction (GO:0000003)	200	6	1.57	+	3.82	5.67E-03	4.12E-02

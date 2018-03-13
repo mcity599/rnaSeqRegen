@@ -1,0 +1,13 @@
+XENTR|Xenbase=XB-GENE-948769|UniProtKB=Q28HP6	snap25	Synaptosomal-associated protein;snap25;ortholog	SYNAPTOSOMAL-ASSOCIATED PROTEIN 25 (PTHR19305:SF5)	SNARE protein(PC00034)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-977139|UniProtKB=F6RLA9	chrna1	Cholinergic receptor, nicotinic alpha 1;chrna1;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT ALPHA (PTHR18945:SF74)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-979686|UniProtKB=F7DHN1	chrne	Cholinergic receptor, nicotinic epsilon;chrne;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT EPSILON (PTHR18945:SF59)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5823874|UniProtKB=F6SLM7	cacna1s	Calcium channel, voltage-dependent, L type, alpha 1S subunit;cacna1s;ortholog	VOLTAGE-DEPENDENT L-TYPE CALCIUM CHANNEL SUBUNIT ALPHA-1S (PTHR45628:SF9)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-923160|UniProtKB=F7DYW2	ache	Carboxylic ester hydrolase;ache;ortholog	ACETYLCHOLINESTERASE (PTHR43918:SF8)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-480347|UniProtKB=Q6P640	actc1	Actin, alpha cardiac muscle 1;actc1;ortholog	ACTIN, ALPHA CARDIAC MUSCLE 1 (PTHR11937:SF176)	actin and actin related protein(PC00039)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-989975|UniProtKB=F6WX27	chrnd	Uncharacterized protein (Fragment);chrnd;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT DELTA (PTHR18945:SF61)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-854457|UniProtKB=F6ZMD3	chrnb2	Uncharacterized protein (Fragment);chrnb2;ortholog	NEURONAL ACETYLCHOLINE RECEPTOR SUBUNIT BETA-2 (PTHR18945:SF80)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-1018818|UniProtKB=F6Q2A6	myo10	Uncharacterized protein (Fragment);myo10;ortholog	UNCONVENTIONAL MYOSIN-X (PTHR46049:SF2)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-493937|UniProtKB=Q5M8T9	acta2	Actin, alpha 2, smooth muscle, aorta;acta2;ortholog	ACTIN, GAMMA-ENTERIC SMOOTH MUSCLE (PTHR11937:SF227)	actin and actin related protein(PC00039)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5788095|UniProtKB=F7AFY3	vamp2	Uncharacterized protein (Fragment);vamp2;ortholog	VESICLE-ASSOCIATED MEMBRANE PROTEIN 2 (PTHR45701:SF5)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-990010|UniProtKB=F6WX69	chrng	Uncharacterized protein (Fragment);chrng;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT GAMMA (PTHR18945:SF60)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
+XENTR|Ensembl=ENSXETG00000030140|UniProtKB=F7EP58	stx1b	Uncharacterized protein (Fragment);stx1b;ortholog	SYNTAXIN-1B (PTHR19957:SF76)	SNARE protein(PC00034)	Xenopus tropicalis

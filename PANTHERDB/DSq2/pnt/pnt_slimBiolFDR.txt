@@ -1,0 +1,47 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20171205)
+Annotation Version and Release Date:	PANTHER version 13.1 Released 2018-02-03
+Analyzed List:	Client Text Box Input (Xenopus tropicalis)	There are duplicate IDs in the file. The unique set of IDs will be used.
+Reference List:	Xenopus tropicalis (all genes in database)
+Test Type:	FISHER
+PANTHER GO-Slim Biological Process	Xenopus tropicalis - REFLIST (24177)	Client Text Box Input (639)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+developmental process (GO:0032502)	1558	117	41.18	+	2.84	1.95E-23	4.67E-21
+multicellular organismal process (GO:0032501)	1717	104	45.38	+	2.29	1.14E-14	9.13E-13
+single-multicellular organism process (GO:0044707)	1712	104	45.25	+	2.30	9.92E-15	1.19E-12
+Unclassified (UNCLASSIFIED)	12179	233	321.89	-	.72	3.14E-12	1.88E-10
+cell differentiation (GO:0030154)	577	48	15.25	+	3.15	1.91E-11	9.15E-10
+muscle contraction (GO:0006936)	114	20	3.01	+	6.64	2.55E-10	1.02E-08
+system development (GO:0048731)	449	38	11.87	+	3.20	1.63E-09	5.60E-08
+system process (GO:0003008)	1069	64	28.25	+	2.27	3.99E-09	1.20E-07
+cellular process (GO:0009987)	8713	300	230.29	+	1.30	2.66E-08	7.09E-07
+ectoderm development (GO:0007398)	229	22	6.05	+	3.63	6.62E-07	1.59E-05
+nervous system development (GO:0007399)	355	28	9.38	+	2.98	8.67E-07	1.73E-05
+mesoderm development (GO:0007498)	291	25	7.69	+	3.25	7.98E-07	1.74E-05
+cellular component morphogenesis (GO:0032989)	490	33	12.95	+	2.55	3.52E-06	6.50E-05
+cell communication (GO:0007154)	3045	120	80.48	+	1.49	1.07E-05	1.84E-04
+muscle organ development (GO:0007517)	37	8	.98	+	8.18	1.72E-05	2.75E-04
+synaptic transmission (GO:0007268)	428	28	11.31	+	2.48	2.95E-05	4.42E-04
+cell-cell signaling (GO:0007267)	596	34	15.75	+	2.16	5.61E-05	7.92E-04
+anatomical structure morphogenesis (GO:0009653)	152	14	4.02	+	3.48	1.06E-04	1.41E-03
+ion transport (GO:0006811)	438	26	11.58	+	2.25	2.65E-04	3.35E-03
+transcription from RNA polymerase II promoter (GO:0006366)	795	39	21.01	+	1.86	3.35E-04	4.02E-03
+neurological system process (GO:0050877)	974	45	25.74	+	1.75	5.22E-04	5.96E-03
+regulation of transcription from RNA polymerase II promoter (GO:0006357)	634	32	16.76	+	1.91	7.28E-04	7.94E-03
+sensory perception of chemical stimulus (GO:0007606)	283	0	7.48	-	 < 0.01	1.02E-03	1.07E-02
+signal transduction (GO:0007165)	2670	98	70.57	+	1.39	1.13E-03	1.13E-02
+heart development (GO:0007507)	27	5	.71	+	7.01	1.26E-03	1.21E-02
+biological adhesion (GO:0022610)	380	21	10.04	+	2.09	2.13E-03	1.90E-02
+cell adhesion (GO:0007155)	380	21	10.04	+	2.09	2.13E-03	1.97E-02
+mitosis (GO:0007067)	237	0	6.26	-	 < 0.01	3.32E-03	2.75E-02
+transcription, DNA-dependent (GO:0006351)	985	42	26.03	+	1.61	3.32E-03	2.84E-02
+cell proliferation (GO:0008283)	72	7	1.90	+	3.68	4.25E-03	3.40E-02
+response to endogenous stimulus (GO:0009719)	246	15	6.50	+	2.31	4.39E-03	3.40E-02
+segment specification (GO:0007379)	94	8	2.48	+	3.22	4.87E-03	3.65E-02
+exocytosis (GO:0006887)	162	11	4.28	+	2.57	5.35E-03	3.89E-02
+glycolysis (GO:0006096)	25	4	.66	+	6.05	6.20E-03	4.38E-02
+cytoskeleton organization (GO:0007010)	495	24	13.08	+	1.83	6.93E-03	4.75E-02
+transport (GO:0006810)	1660	62	43.87	+	1.41	7.22E-03	4.82E-02

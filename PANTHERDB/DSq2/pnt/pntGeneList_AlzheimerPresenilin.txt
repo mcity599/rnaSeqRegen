@@ -1,0 +1,14 @@
+XENTR|Xenbase=XB-GENE-1004978|UniProtKB=F7DUN9	trpc1	Transient receptor potential cation channel, subfamily C, member 1;trpc1;ortholog	SHORT TRANSIENT RECEPTOR POTENTIAL CHANNEL 1 (PTHR10117:SF56)	ion channel(PC00133)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-485975|UniProtKB=F7BVL1	tcf7l2	Uncharacterized protein;tcf7l2;ortholog	TRANSCRIPTION FACTOR 7-LIKE 2 (PTHR10373:SF32)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-484098|UniProtKB=F6ZQ88	wnt4	Protein Wnt;wnt4;ortholog	PROTEIN WNT-4 (PTHR12027:SF101)	signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-487547|UniProtKB=F6PZ03	cd44	Uncharacterized protein (Fragment);cd44;ortholog	CD44 ANTIGEN (PTHR10225:SF6)		Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-482664|UniProtKB=A0JMB0	wnt10b	Protein Wnt;wnt10b;ortholog	PROTEIN WNT-10B (PTHR12027:SF76)	signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-480347|UniProtKB=Q6P640	actc1	Actin, alpha cardiac muscle 1;actc1;ortholog	ACTIN, ALPHA CARDIAC MUSCLE 1 (PTHR11937:SF176)	actin and actin related protein(PC00039)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-479154|UniProtKB=F7D9N7	app	Uncharacterized protein (Fragment);app;ortholog	AMYLOID BETA A4 PROTEIN (PTHR23103:SF7)	protease inhibitor(PC00191)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-486077|UniProtKB=F6XT17	wnt6	Protein Wnt;wnt6;ortholog	PROTEIN WNT-6 (PTHR12027:SF72)	signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-854158|UniProtKB=B2GUT4	wnt11	Protein Wnt-11;wnt11;ortholog	PROTEIN WNT-11 (PTHR12027:SF7)	signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-866787|UniProtKB=F6UF50	wnt9b	Protein Wnt (Fragment);wnt9b;ortholog	PROTEIN WNT-9B (PTHR12027:SF84)	signaling molecule(PC00207)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5955201|UniProtKB=A4IGI7	ctnna2	Catenin alpha-2;ctnna2;ortholog	CATENIN ALPHA-2 (PTHR18914:SF23)	cell adhesion molecule(PC00069);non-motor actin binding protein(PC00165)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-493937|UniProtKB=Q5M8T9	acta2	Actin, alpha 2, smooth muscle, aorta;acta2;ortholog	ACTIN, GAMMA-ENTERIC SMOOTH MUSCLE (PTHR11937:SF227)	actin and actin related protein(PC00039)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-5826034|UniProtKB=F6TSI0	trim3	Tripartite motif-containing 3;trim3;ortholog	TRIPARTITE MOTIF-CONTAINING PROTEIN 3 (PTHR24104:SF21)	ubiquitin-protein ligase(PC00234)	Xenopus tropicalis
+XENTR|Xenbase=XB-GENE-478210|UniProtKB=F6V5F4	fzd4	Frizzled class receptor 4;fzd4;ortholog	FRIZZLED-4 (PTHR11309:SF23)	G-protein coupled receptor(PC00021);protease inhibitor(PC00191);signaling molecule(PC00207)	Xenopus tropicalis
