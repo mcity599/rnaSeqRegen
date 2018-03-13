@@ -1,9 +1,0 @@
-XENTR|Xenbase=XB-GENE-486958|UniProtKB=F6WS85	mef2c	Uncharacterized protein;mef2c;ortholog	MYOCYTE-SPECIFIC ENHANCER FACTOR 2C (PTHR11945:SF25)	MADS box transcription factor(PC00250)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5940737|UniProtKB=F7EDS2	clu	Uncharacterized protein;clu;ortholog	CLUSTERIN (PTHR10970:SF1)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-491079|UniProtKB=F6YJM7	nfkbia	Uncharacterized protein;nfkbia;ortholog	NF-KAPPA-B INHIBITOR ALPHA (PTHR46680:SF1)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-853412|UniProtKB=A4II20	egr1	Early growth response protein 1;egr1;ortholog	EARLY GROWTH RESPONSE PROTEIN 1 (PTHR23235:SF42)	DNA binding protein(PC00009);transcription cofactor(PC00217);zinc finger transcription factor(PC00244)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480320|UniProtKB=F6TYT7	hspb1	Uncharacterized protein (Fragment);hspb1;ortholog	HEAT SHOCK PROTEIN BETA-1 (PTHR45640:SF7)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-483315|UniProtKB=Q0V9X8	nr4a1	Nuclear receptor subfamily 4 group A member 1;nr4a1;ortholog	NUCLEAR RECEPTOR SUBFAMILY 4 GROUP A MEMBER 1 (PTHR24085:SF1)	C4 zinc finger nuclear receptor(PC00169);receptor(PC00197)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-977282|UniProtKB=Q5BKN8	acat1	Acetyl-CoA acetyltransferase, mitochondrial;acat1;ortholog	ACETYL-COA ACETYLTRANSFERASE, MITOCHONDRIAL (PTHR18919:SF81)	acetyltransferase(PC00038)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-1015126|UniProtKB=F7EFA1	lyn	Tyrosine-protein kinase;lyn;ortholog	TYROSINE-PROTEIN KINASE LYN (PTHR24418:SF42)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-966171|UniProtKB=F6UAQ5	birc2	Uncharacterized protein;birc2;ortholog	BACULOVIRAL IAP REPEAT-CONTAINING PROTEIN 2 (PTHR10044:SF79)	protease inhibitor(PC00191)	Xenopus tropicalis

@@ -1,8 +1,0 @@
-XENTR|Xenbase=XB-GENE-482101|UniProtKB=Q5Y173	spry2	Sprouty2;spry2;ortholog	PROTEIN SPROUTY HOMOLOG 2 (PTHR12365:SF8)	signaling molecule(PC00207);transcription factor(PC00218)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480983|UniProtKB=F6Y7J9	fgf8	Fibroblast growth factor;fgf8;ortholog	FIBROBLAST GROWTH FACTOR 8 (PTHR11486:SF3)	growth factor(PC00112)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480579|UniProtKB=F6XKT5	spry1	Uncharacterized protein;spry1;ortholog	PROTEIN SPROUTY HOMOLOG 1 (PTHR12365:SF10)	signaling molecule(PC00207);transcription factor(PC00218)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-1018517|UniProtKB=F7D015	fgf3	Fibroblast growth factor (Fragment);fgf3;ortholog	FIBROBLAST GROWTH FACTOR 3 (PTHR11486:SF26)	growth factor(PC00112)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-481880|UniProtKB=B7UCP9	fgf20	Fibroblast growth factor;fgf20;ortholog	FIBROBLAST GROWTH FACTOR 20 (PTHR11486:SF72)	growth factor(PC00112)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-485044|UniProtKB=Q07G49	fgf10	Fibroblast growth factor;fgf10;ortholog	FIBROBLAST GROWTH FACTOR 10 (PTHR11486:SF21)	growth factor(PC00112)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480496|UniProtKB=F6WY95	fgf4	Fibroblast growth factor (Fragment);fgf4;ortholog	FIBROBLAST GROWTH FACTOR 4 (PTHR11486:SF31)	growth factor(PC00112)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-488183|UniProtKB=Q5M7N7	fgf7	Fibroblast growth factor;fgf7;ortholog	FIBROBLAST GROWTH FACTOR 7 (PTHR11486:SF20)	growth factor(PC00112)	Xenopus tropicalis

@@ -1,0 +1,7 @@
+UniProtKB=F6Y2B6	tll1	Metalloendopeptidase;tll1;ortholog	TOLLOID-LIKE PROTEIN 1 (PTHR45645:SF26)	metalloprotease(PC00153)	
+UniProtKB=Q6F2E0	bambi	BMP and activin membrane-bound inhibitor homolog;bambi;ortholog	BMP AND ACTIVIN MEMBRANE-BOUND INHIBITOR HOMOLOG (PTHR15505:SF1)		
+UniProtKB=F7DJD4	tll1	Metalloendopeptidase (Fragment);tll1;ortholog	TOLLOID-LIKE PROTEIN 1 (PTHR45645:SF26)	metalloprotease(PC00153)	
+UniProtKB=F6S4W2	smad6	Mothers against decapentaplegic homolog;smad6;ortholog	MOTHERS AGAINST DECAPENTAPLEGIC HOMOLOG 6 (PTHR13703:SF28)	transcription factor(PC00218)	
+UniProtKB=Q90YD6	bmp4	BMP4;bmp4;ortholog	BONE MORPHOGENETIC PROTEIN 4 (PTHR11848:SF165)	growth factor(PC00112)	
+UniProtKB=Q6F2B8	bmp7	BMP7;bmp7.2;ortholog	BONE MORPHOGENETIC PROTEIN 7 (PTHR11848:SF135)	growth factor(PC00112)	
+UniProtKB=F6QUF3	tll2	Metalloendopeptidase;tll2;ortholog	TOLLOID-LIKE PROTEIN 2 (PTHR45645:SF15)	metalloprotease(PC00153)	

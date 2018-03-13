@@ -1,4 +1,0 @@
-XENTR|Xenbase=XB-GENE-487394|UniProtKB=F6YMR2	mef2a	Uncharacterized protein;mef2a;ortholog	MYOCYTE-SPECIFIC ENHANCER FACTOR 2A (PTHR11945:SF145)	MADS box transcription factor(PC00250)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-486958|UniProtKB=F6WS85	mef2c	Uncharacterized protein;mef2c;ortholog	MYOCYTE-SPECIFIC ENHANCER FACTOR 2C (PTHR11945:SF25)	MADS box transcription factor(PC00250)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480320|UniProtKB=F6TYT7	hspb1	Uncharacterized protein (Fragment);hspb1;ortholog	HEAT SHOCK PROTEIN BETA-1 (PTHR45640:SF7)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-491527|UniProtKB=Q66I46	mknk2	MAP kinase-interacting serine/threonine-protein kinase 2;mknk2;ortholog	MAP KINASE-INTERACTING SERINE/THREONINE-PROTEIN KINASE 2 (PTHR24349:SF254)	non-motor microtubule binding protein(PC00166);non-receptor serine/threonine protein kinase(PC00167)	Xenopus tropicalis

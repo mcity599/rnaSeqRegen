@@ -170,6 +170,9 @@ expt2_geneConversionDown <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[mat
 expt3_geneConversionUp <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt3_upregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
 expt3_geneConversionDown <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt3_downregInB,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
 
+expt1lowStrin_geneConversionWT <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt1lowStrin_OverExpressedWT,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+expt1lowStrin_geneConversionNR <- as.vector(na.omit(XenbaseGenepageToGeneIdMapping[match(NcbiMrnaXenbaseGene_laevis[as.vector(na.omit(match(Expt1lowStrin_OverExpressedNR,NcbiMrnaXenbaseGene_laevis[,4]))),3],XenbaseGenepageToGeneIdMapping[,5]),2]))
+
 length(expt1_geneConversionDown)
 length(expt1_geneConversionUp)
 length(expt2_geneConversionDown)
@@ -193,6 +196,13 @@ UpregGenes_expt2 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(
 
 DownregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionDown,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
 UpregGenes_expt3 <- as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt3_geneConversionUp,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+
+Expt1lowStrin_NRoverExpressed <-as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt1lowStrin_geneConversionNR,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+Expt1lowStrin_WToverExpressed <-as.vector(XenbaseGeneHumanOrthologMapping[as.vector(na.omit(match(expt1lowStrin_geneConversionWT,as.vector(XenbaseGeneHumanOrthologMapping[,3])))),3])
+Expt1lowStrin_NRoverExpressed
+
+write.csv(Expt1lowStrin_NRoverExpressed,file="DSq2DE_Expt1LowStrin_OverExpressedNR.csv")
+write.csv(Expt1lowStrin_WToverExpressed,file="DSq2DE_Expt1LowStrin_OverExpressedWT.csv")
 
 # Tidy up by removing the large objects involve in these conversions:
 rm(NcbiMrnaXenbaseGene_laevis)
@@ -665,7 +675,201 @@ length(DESeqDEGenesExpt2[[1]])
 ```
 
 
+## Edit 20180313
+I want to repeat this overlap data to take into account the new low stringency Expt1 gene lists.
+```{r}
+Expt1lowStrin_NRoverExpressed
+Expt1lowStrin_WToverExpressed
+
+names(DESeqDEGenesExpt2)
+# [1] "OverExpressedTbud" "OverExpressedPNT"
+names(DESeqDEGenesExpt3)
+# [1] "OverExpressedConCap" "OverExpressedInjCap"
+
+length(na.omit(match(Expt1lowStrin_WToverExpressed,DESeqDEGenesExpt2[[1]])))    # 18 genes overlap between tbud and WT
+length(na.omit(match(Expt1lowStrin_WToverExpressed,DESeqDEGenesExpt2[[2]])))    # 16 genes overlap between PNT and WT
+length(na.omit(match(Expt1lowStrin_WToverExpressed,DESeqDEGenesExpt3[[1]])))    # 6 overlap between conCap and WT
+length(na.omit(match(Expt1lowStrin_WToverExpressed,DESeqDEGenesExpt3[[2]])))    # 139 genes overlap between WT and InjCap
+length(DESeqDEGenesExpt3[[2]]) ## WT is 201 genes long, InjCap is 1344, 139 overlap is 69% and 10% respectively. 
+
+length(na.omit(match(Expt1lowStrin_NRoverExpressed,DESeqDEGenesExpt2[[1]])))    # 15 genes overlap between tbud and NR
+length(na.omit(match(Expt1lowStrin_NRoverExpressed,DESeqDEGenesExpt2[[2]])))    # 153 genes overlap between PNT and NR
+length(na.omit(match(Expt1lowStrin_NRoverExpressed,DESeqDEGenesExpt3[[1]])))    # 71 overlap between conCap and NR
+length(na.omit(match(Expt1lowStrin_NRoverExpressed,DESeqDEGenesExpt3[[2]])))    # 76 genes overlap between InjCap and NR
+
+
+## InjCap shares 139 genes with WT, but also shares 76 genes with NR. 
+
+lowStrinWT_plus_Tbud <- Expt1lowStrin_WToverExpressed[na.omit(match(DESeqDEGenesExpt2[[1]],Expt1lowStrin_WToverExpressed))]
+lowStrinWT_plus_Pnt <- Expt1lowStrin_WToverExpressed[na.omit(match(DESeqDEGenesExpt2[[2]],Expt1lowStrin_WToverExpressed))]
+lowStrinWT_plus_conCap <- Expt1lowStrin_WToverExpressed[na.omit(match(DESeqDEGenesExpt3[[1]],Expt1lowStrin_WToverExpressed))]
+lowStrinWT_plus_injCap <- Expt1lowStrin_WToverExpressed[na.omit(match(DESeqDEGenesExpt3[[2]],Expt1lowStrin_WToverExpressed))]
+
+lowStrinNR_plus_Tbud <- Expt1lowStrin_NRoverExpressed[na.omit(match(DESeqDEGenesExpt2[[1]],Expt1lowStrin_NRoverExpressed))]
+lowStrinNR_plus_Pnt <- Expt1lowStrin_NRoverExpressed[na.omit(match(DESeqDEGenesExpt2[[2]],Expt1lowStrin_NRoverExpressed))]
+lowStrinNR_plus_conCap <-Expt1lowStrin_NRoverExpressed[na.omit(match(DESeqDEGenesExpt3[[1]],Expt1lowStrin_NRoverExpressed))]
+lowStrinNR_plus_injCap <- Expt1lowStrin_NRoverExpressed[na.omit(match(DESeqDEGenesExpt3[[2]],Expt1lowStrin_NRoverExpressed))]
+
+
+write.csv(lowStrinWT_plus_Tbud,file='lowStrinWT_plus_Tbud.csv')
+write.csv(lowStrinWT_plus_Pnt,file='lowStrinWT_plus_Pnt.csv')
+write.csv(lowStrinWT_plus_conCap,file='lowStrinWT_plus_conCap.csv')
+write.csv(lowStrinWT_plus_injCap,file='lowStrinWT_plus_injCap.csv')
+
+write.csv(lowStrinNR_plus_Tbud,file='lowStrinNR_plus_Tbud.csv')
+write.csv(lowStrinNR_plus_Pnt,file='lowStrinNR_plus_Pnt.csv')
+write.csv(lowStrinNR_plus_conCap,file='lowStrinNR_plus_conCap.csv')
+write.csv(lowStrinNR_plus_injCap,file='lowStrinNR_plus_injCap.csv')
+```
+
+
 
 Use GO to find out what each of the gene subsets are associated with. 
+
+
+
+
+
+
+20180313
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Have now used PANTHER to retrieve gene ontology (Biol Slim) tables for each of the gene lists. 
+Also generated panther Pathway gene lists (the list of DE genes which are actually found in an enriched pathway).
+I want to load those into R and look at what overlaps and what does not. I'll also be looking for the genes which C has cherry-picked and are being cloned. 
+
+I've just saved the environment, which contains all of the objects used to date, as diffExpressedGenes_environment_20180313. 
+Clear the workspace, and load in the various pathway lists and C's cherry-picked genes (Cgenes). 
+
+```{r}
+injCapGeneList_hedgehog <- read.delim("~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/injCap/injCap_pathwaygeneLists/injCapGeneList_hedgehog.txt", header=FALSE)
+
+# But rather than read in a single file at a time, I want to read in all files in a directory.
+
+# InjCap
+getwd()
+injCapDir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/injCap/injCap_pathwaygeneLists/"
+injCapFilename <- list.files(injCapDir)
+injCapFilename
+
+geneListColumnNames <- c("UniProt","GeneSymbol","DescriptorA","DescriptorB","DescriptorC","Unknown")
+injCapPathwayGeneLists <- lapply(1:length(injCapFilename),function(x) read.delim(paste0(injCapDir,injCapFilename)[[x]],header=F,col.names=geneListColumnNames))
+names(injCapPathwayGeneLists) <- injCapFilename
+injCapPathwayGeneLists[1]
+rm(injCapDir)
+rm(injCapFilename)
+
+# Ok: this works, but would then invovle copy pasting these 14 lines of code and replacing "InjCap" with "conCap/Tbud" etc., which I don't want to do. I can re-write the code to be less specific, and then only need to change the first (e.g., thePathwayDir) and last (final object name) names. 
+# What I can do as an alternative is try and list all the file names in DSq2 and then write a loop to run through them all. But this would be frustrating to do. 
+
+# Non-specific pathway
+geneListColumnNames <- c("UniProt","GeneSymbol","DescriptorA","DescriptorB","DescriptorC","Unknown")
+
+# Non-specific pathway
+getwd()
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/injCap/injCap_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+injCapPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/conCap/conCap_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+conCapPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/NRlowStrin/NRlowStrin_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+NRlowStrinPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/pnt/pnt_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+pntPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/Tbud/Tbud_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+TbudPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+
+Dir <- "~/Documents/RnaR/rnaSeqRegen/PANTHERDB/DSq2/WTlowStrin/WTlowStrin_pathwayGeneLists/"
+Filename <- list.files(Dir)
+Filename
+PathwayGeneLists <- lapply(1:length(Filename),function(x) read.delim(paste0(Dir,Filename)[[x]],header=F,col.names=geneListColumnNames))
+names(PathwayGeneLists) <- Filename
+PathwayGeneLists[1]
+WTlowStrinPathwayGeneLists <- PathwayGeneLists
+rm(PathwayGeneLists)
+rm(Dir)
+rm(Filename)
+
+## now to add the list of Cgenes:
+Cgenes <-c("inhba","phdgh","not","spry4","hoxa13","fgf20","crabp2","T","prss27","irrc15","sp5l","gli1","endou","apcdd","adamts18","sox10","endrb")
+## I've added gli1, which is listed on the Cgenes cloning planner as being the same as sp5l
+lapply(1:length(injCapPathwayGeneLists),function(x) length(na.omit(match(Cgenes,injCapPathwayGeneLists[[x]]$GeneSymbol))))
+
+pantherPathwayGeneLists <- list(WTlowStrinPathwayGeneLists,NRlowStrinPathwayGeneLists,TbudPathwayGeneLists,pntPathwayGeneLists,conCapPathwayGeneLists,injCapPathwayGeneLists)
+
+names(pantherPathwayGeneLists) <- c("WTlowStrinPathway","NRlowStrinPathway","TbudPathway","pntPathway","conCapPathway","injCapPathway")
+unlist(lapply(1:length(pantherPathwayGeneLists[[5]]),function(x) length(na.omit(match(Cgenes,as.vector(pantherPathwayGeneLists[[5]][[x]]$GeneSymbol)))))) 
+# TbudPathway[1] has 1 gene
+TbudPathwayGeneLists[[1]]$GeneSymbol[na.omit(match(Cgenes,TbudPathwayGeneLists[[1]]$GeneSymbol))]
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
