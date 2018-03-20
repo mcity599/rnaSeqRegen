@@ -849,11 +849,32 @@ unlist(lapply(1:length(pantherPathwayGeneLists[[5]]),function(x) length(na.omit(
 # TbudPathway[1] has 1 gene
 TbudPathwayGeneLists[[1]]$GeneSymbol[na.omit(match(Cgenes,TbudPathwayGeneLists[[1]]$GeneSymbol))]
 
+save(pantherPathwayGeneLists,file='pantherPathwayGeneLists.RData')
+rm(pantherPathwayGeneLists)
+
+save(conCapPathwayGeneLists,file='conCapPathwayGeneLists.RData')
+rm(conCapPathwayGeneLists)
+save(injCapPathwayGeneLists,file='injCapPathwayGeneLists.RData')
+rm(injCapPathwayGeneLists)
+save(NRlowStrinPathwayGeneLists,file='NRlowStrinPathwayGeneLists.RData')
+rm(NRlowStrinPathwayGeneLists)
+save(pntPathwayGeneLists,file='pntPathwayGeneLists.RData')
+rm(pntPathwayGeneLists)
+save(TbudPathwayGeneLists,file='TbudPathwayGeneLists.RData')
+rm(TbudPathwayGeneLists)
+save(WTlowStrinPathwayGeneLists,file='WTlowStrinPathwayGeneLists.RData')
+rm(WTlowStrinPathwayGeneLists)
 ```
 
 
 
+20180321
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Look for the presence of the Cgenes in the lists of diff expressed genes
 
+```{r}
+
+```
 
 
 
