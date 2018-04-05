@@ -1,0 +1,7 @@
+UniProtKB=F6ZRC3	pgam2	Phosphoglycerate mutase (Fragment);pgam2;ortholog	PHOSPHOGLYCERATE MUTASE 2 (PTHR11931:SF8)		
+UniProtKB=Q28HJ8	gapdh	Glyceraldehyde-3-phosphate dehydrogenase;gapdh;ortholog	GLYCERALDEHYDE-3-PHOSPHATE DEHYDROGENASE (PTHR10836:SF76)	dehydrogenase(PC00092)	
+UniProtKB=B0BMH7	eno1	Eno1 protein;eno1;ortholog	ALPHA-ENOLASE (PTHR11902:SF12)	lyase(PC00144)	
+UniProtKB=B0BM40	tpi1	Triosephosphate isomerase;tpi1;ortholog	TRIOSEPHOSPHATE ISOMERASE (PTHR21139:SF15)	isomerase(PC00135)	
+UniProtKB=F7E7R1	aldoa	Fructose-bisphosphate aldolase (Fragment);aldoa;ortholog	FRUCTOSE-BISPHOSPHATE ALDOLASE A (PTHR11627:SF1)		
+UniProtKB=F6PJ53	aldob	Fructose-bisphosphate aldolase (Fragment);aldob;ortholog	FRUCTOSE-BISPHOSPHATE ALDOLASE B (PTHR11627:SF2)		
+UniProtKB=Q6NVQ9	aldoc	Fructose-bisphosphate aldolase;aldoc;ortholog	FRUCTOSE-BISPHOSPHATE ALDOLASE C (PTHR11627:SF3)		

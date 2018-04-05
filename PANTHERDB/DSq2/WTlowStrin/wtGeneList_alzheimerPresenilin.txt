@@ -1,9 +1,0 @@
-XENTR|Xenbase=XB-GENE-480396|UniProtKB=F7DI28	wnt5b	Protein Wnt (Fragment);wnt5b;ortholog	PROTEIN WNT-5B (PTHR12027:SF87)	signaling molecule(PC00207)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-855462|UniProtKB=F7BRW9	tcf7	Uncharacterized protein;tcf7;ortholog	TRANSCRIPTION FACTOR 7 (PTHR10373:SF33)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-487547|UniProtKB=F6PZ03	cd44	Uncharacterized protein (Fragment);cd44;ortholog	CD44 ANTIGEN (PTHR10225:SF6)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-485517|UniProtKB=F6WCX0	lef1	Lymphoid enhancer-binding factor 1;lef1;ortholog	LYMPHOID ENHANCER-BINDING FACTOR 1 (PTHR10373:SF11)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5944489|UniProtKB=F7BXU6	mmp25	Matrix metallopeptidase 25;mmp25;ortholog	MATRIX METALLOPROTEINASE-25 (PTHR10201:SF142)	metalloprotease(PC00153)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-486077|UniProtKB=F6XT17	wnt6	Protein Wnt;wnt6;ortholog	PROTEIN WNT-6 (PTHR12027:SF72)	signaling molecule(PC00207)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-876295|UniProtKB=F7CL91	mmp9	Uncharacterized protein;mmp9;ortholog	MATRIX METALLOPROTEINASE-9 (PTHR10201:SF30)	metalloprotease(PC00153)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-6540414|UniProtKB=F6UAB9	mmp13	Uncharacterized protein;mmp13;ortholog	INTERSTITIAL COLLAGENASE (PTHR10201:SF151)	metalloprotease(PC00153)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-960304|UniProtKB=F7A0Y4	mmp21	Matrix metallopeptidase 21;mmp21;ortholog	MATRIX METALLOPROTEINASE-21 (PTHR10201:SF147)	metalloprotease(PC00153)	Xenopus tropicalis

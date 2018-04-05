@@ -1,7 +1,0 @@
-XENTR|Ensembl=ENSXETG00000033975|UniProtKB=Q28HJ8	gapdh	Glyceraldehyde-3-phosphate dehydrogenase;gapdh;ortholog	GLYCERALDEHYDE-3-PHOSPHATE DEHYDROGENASE (PTHR10836:SF76)	dehydrogenase(PC00092)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5918041|UniProtKB=F7DFA1	pklr	Pyruvate kinase;pklr;ortholog	PYRUVATE KINASE PKLR (PTHR11817:SF31)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5817381|UniProtKB=F7E7F3	hk2	Uncharacterized protein;hk2;ortholog	HEXOKINASE-2 (PTHR19443:SF4)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-981498|UniProtKB=Q28I68	bpgm	Phosphoglycerate mutase;bpgm;ortholog	BISPHOSPHOGLYCERATE MUTASE (PTHR11931:SF11)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5925393|UniProtKB=F6PJ53	aldob	Fructose-bisphosphate aldolase (Fragment);aldob;ortholog	FRUCTOSE-BISPHOSPHATE ALDOLASE B (PTHR11627:SF2)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-944058|UniProtKB=F6ZHL4	gpi	Glucose-6-phosphate isomerase (Fragment);gpi;ortholog	GLUCOSE-6-PHOSPHATE ISOMERASE (PTHR11469:SF4)	isomerase(PC00135)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-947126|UniProtKB=F6WY38	pgk1	Phosphoglycerate kinase;pgk1;ortholog	PHOSPHOGLYCERATE KINASE (PTHR11406:SF0)	carbohydrate kinase(PC00065)	Xenopus tropicalis

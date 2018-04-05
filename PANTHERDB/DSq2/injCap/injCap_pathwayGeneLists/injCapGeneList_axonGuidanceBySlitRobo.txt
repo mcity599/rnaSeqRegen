@@ -1,0 +1,8 @@
+UniProtKB=F6WF30	robo1	Uncharacterized protein;robo1;ortholog	ROUNDABOUT HOMOLOG 1 (PTHR12231:SF243)		
+UniProtKB=F7B5I9	rhoj	Ras homolog family member J;rhoj;ortholog	RHO-RELATED GTP-BINDING PROTEIN RHOJ (PTHR24072:SF17)	small GTPase(PC00208)	
+UniProtKB=Q5EBF6	cxcl12	Stromal cell-derived factor 1;cxcl12;ortholog	STROMAL CELL-DERIVED FACTOR 1 (PTHR18837:SF3)		
+UniProtKB=F7DQ42	slit2	Slit guidance ligand 2;slit2;ortholog	SLIT HOMOLOG 2 PROTEIN (PTHR45836:SF2)		
+UniProtKB=Q07FZ4	cxcr4	C-X-C chemokine receptor type 4;cxcr4;ortholog	C-X-C CHEMOKINE RECEPTOR TYPE 4 (PTHR10489:SF594)		
+UniProtKB=F6XII2	enah	Uncharacterized protein (Fragment);enah;ortholog	PROTEIN ENABLED HOMOLOG (PTHR11202:SF1)		
+UniProtKB=A1A5F4	slit1	Slit guidance ligand 1;slit1;ortholog	SLIT HOMOLOG 1 PROTEIN (PTHR45836:SF3)		
+UniProtKB=Q6NVL3	rhob	Ras homolog family member B;rhob;ortholog	RHO-RELATED GTP-BINDING PROTEIN RHOB (PTHR24072:SF0)	small GTPase(PC00208)	

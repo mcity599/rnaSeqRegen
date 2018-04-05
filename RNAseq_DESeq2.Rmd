@@ -839,6 +839,7 @@ rm(Filename)
 
 ## now to add the list of Cgenes:
 Cgenes <-c("inhba","phdgh","not","spry4","hoxa13","fgf20","crabp2","T","prss27","irrc15","sp5l","gli1","endou","apcdd","adamts18","sox10","endrb")
+save(Cgenes,file='Cgenes.RData')
 ## I've added gli1, which is listed on the Cgenes cloning planner as being the same as sp5l
 lapply(1:length(injCapPathwayGeneLists),function(x) length(na.omit(match(Cgenes,injCapPathwayGeneLists[[x]]$GeneSymbol))))
 
@@ -864,6 +865,8 @@ save(TbudPathwayGeneLists,file='TbudPathwayGeneLists.RData')
 rm(TbudPathwayGeneLists)
 save(WTlowStrinPathwayGeneLists,file='WTlowStrinPathwayGeneLists.RData')
 rm(WTlowStrinPathwayGeneLists)
+rm(geneListColumnNames)
+rm(i)
 ```
 
 
@@ -872,20 +875,220 @@ rm(WTlowStrinPathwayGeneLists)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Look for the presence of the Cgenes in the lists of diff expressed genes
 
+## This overlap is done here, but I discovered later that some Cgenes (e.g., not.S) are absent from the DESeqDEGenesExpt objects (which are based on human gene symbols). Below this chunk I've repeated the overlap with Cgenes and the Xenbase genes (now saved in Ojbects/DSq2_xenbaseDEgenes/xLGenes_Expt...). 
 ```{r}
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DESeqDEGenesExpt1.RData")
+names(DESeqDEGenesExpt1)
+Cgenes[na.omit(match(DESeqDEGenesExpt1[[1]],Cgenes))]
+# Cgenes overexpressed in WT: "fgf20"  "crabp2"
 
+Cgenes[na.omit(match(DESeqDEGenesExpt1[[2]],Cgenes))]
+# Cgenes overexpressed in NR: none (good)
+
+rm(DESeqDEGenesExpt1)
+
+load("~/Documents/RnaR/rnaSeqRegen/Objects/Expt1lowStrin_OverExpressedNR.RData")
+load("~/Documents/RnaR/rnaSeqRegen/Objects/Expt1lowStrin_OverExpressedWT.RData")
+## Ah! Remember that the RData objects for lowStrin are the original (Xenbase) gene names. The gene symbols (which will match Cgenes) are stored in the csv files:
+rm(Expt1lowStrin_OverExpressedNR)
+rm(Expt1lowStrin_OverExpressedWT)
+
+DSq2DE_Expt1LowStrin_OverExpressedWT <- read.table("~/Documents/RnaR/rnaSeqRegen/DESeq2_diffExpressedGenes/DSq2DE_Expt1LowStrin_OverExpressedWT.csv", quote="\"", comment.char="")
+DSq2DE_Expt1LowStrin_OverExpressedWT[1:20,1]
+
+Cgenes[na.omit(match(as.vector(DSq2DE_Expt1LowStrin_OverExpressedWT[,1]),Cgenes))]
+# Cgenes overexpressed in WT: "fgf20"  "crabp2"
+
+DSq2DE_Expt1LowStrin_OverExpressedNR <- read.csv("~/Documents/RnaR/rnaSeqRegen/DESeq2_diffExpressedGenes/DSq2DE_Expt1LowStrin_OverExpressedNR.csv", sep="")
+Cgenes[na.omit(match(as.vector(DSq2DE_Expt1LowStrin_OverExpressedNR[,1]),Cgenes))]
+# Cgenes overexpressed in NR: none (good)
+
+rm(DSq2DE_Expt1LowStrin_OverExpressedWT)
+rm(DSq2DE_Expt1LowStrin_OverExpressedNR)
+
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DESeqDEGenesExpt2.RData")
+names(DESeqDEGenesExpt2)
+Cgenes[na.omit(match(DESeqDEGenesExpt2[[1]],Cgenes))]
+# Cgenes overexpressed in Tbud: "fgf20"  "hoxa13" "crabp2"
+
+Cgenes[na.omit(match(DESeqDEGenesExpt2[[2]],Cgenes))]
+# Cgenes overexpressed in PNT: none (good)
+
+rm(DESeqDEGenesExpt2)
+
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DESeqDEGenesExpt3.RData")
+names(DESeqDEGenesExpt3)
+Cgenes[na.omit(match(DESeqDEGenesExpt3[[1]],Cgenes))]
+# Cgenes overexpressed in conCap: "endou"
+
+Cgenes[na.omit(match(DESeqDEGenesExpt3[[2]],Cgenes))]
+# Cgenes overexpressed in injCap: "sox10"  "crabp2" "gli1"   "fgf20"  "hoxa13"
+```
+
+I have realised that even though not.S (one of the Cgenes) is not included in DSq2DE_Expt1LowStrin_OverExpressedWT (because it lacks a human gene symbol) it IS in Expt1lowStrin_OverExpressedWT. This is the same with hoxa13.L. I need to compared Cgenes (which are true xenopus gene names) with the true list of DE genes (not the human gene symbol lists)
+
+
+```{r}
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DSq2_resultsTableExpt1.RData")
+dim(DSq2_resultsTableExpt1)
+length(DSq2_resultsTableExpt1)
+dim(DSq2_resultsTableExpt1[[1]]) # 28, 6
+DSq2_resultsTableExpt1[[1]]
+
+xLGenes_Expt1Wt <- rownames(DSq2_resultsTableExpt1[[1]])
+xLGenes_Expt1NR <- rownames(DSq2_resultsTableExpt1[[2]])
+rm(DSq2_resultsTableExpt1)
+
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DSq2_resultsTableExpt2.RData")
+xLGenes_Expt2Tbud <- rownames(DSq2_resultsTableExpt2[[1]])
+xLGenes_Expt2Pnt <- rownames(DSq2_resultsTableExpt2[[2]])
+rm(DSq2_resultsTableExpt2)
+
+load("~/Documents/RnaR/rnaSeqRegen/Objects/DSq2_resultsTableExpt3.RData")
+xLGenes_Expt3conCap <- rownames(DSq2_resultsTableExpt3[[1]])
+xLGenes_Expt3injCap <- rownames(DSq2_resultsTableExpt3[[2]])
+rm(DSq2_resultsTableExpt3)
+
+save(xLGenes_Expt1NR,file='xLGenes_Expt1NR.RData')
+save(xLGenes_Expt1Wt,file='xLGenes_Expt1Wt.RData')
+save(xLGenes_Expt2Pnt,file='xLGenes_Expt2Pnt.RData')
+save(xLGenes_Expt2Tbud,file='xLGenes_Expt2Tbud.RData')
+save(xLGenes_Expt3conCap,file='xLGenes_Expt3conCap.RData')
+save(xLGenes_Expt3injCap,file='xLGenes_Expt3injCap.RData')
+```
+
+The xLGenes_Expt lists are the Xenbase gene names for genes, which include the .S or .L notation for the different genome compartments. I have saved these to their own folder in Objects (DSq2_xenbaseDEgenes). 
+
+
+xLGenes can now be mapped against the Cgenes vector, but I'll need to update the Cgenes vector to have the full names:
+```{r}
+CgenesXenbase <- c("inhba.L","inhba.S","phdgf.L","phdgf.S","not.L","not.S","spry4.L","spry4.S","hoxa13.L","hoxa13.S","fgf20.L","fgf20.S","crabp2.L","crabp2.S","t.L","t.S","tbxt.L","tbxt.S","prss27.L","prss27.S","lrrc15.L","lrrc15.S","sp5l.L","sp5l.S","endou","apcdd.L","apcdd.S","adamts18.L","adamts18.S","sox10.L","sox10.S","endrb")
+write.csv(CgenesXenbase,file='CgenesXenbase.csv')
 ```
 
 
 
+```{r}
+CgenesXenbase[na.omit(match(xLGenes_Expt1NR,CgenesXenbase))]
+# 0
+CgenesXenbase[na.omit(match(xLGenes_Expt1Wt,CgenesXenbase))]
+# "not.S"    "fgf20.L"  "not.L"    "crabp2.L"
+CgenesXenbase[na.omit(match(xLGenes_Expt2Pnt,CgenesXenbase))]
+# 0
+CgenesXenbase[na.omit(match(xLGenes_Expt2Tbud,CgenesXenbase))]
+# "fgf20.L"  "tbxt.L"   "tbxt.S"   "not.S"    "hoxa13.S" "hoxa13.L" "sp5l.S"   "not.L"    "crabp2.L"
+CgenesXenbase[na.omit(match(xLGenes_Expt3conCap,CgenesXenbase))]
+# 0
+CgenesXenbase[na.omit(match(xLGenes_Expt3injCap,CgenesXenbase))]
+# "sox10.L"  "sp5l.S"   "tbxt.L"   "tbxt.S"   "not.S"    "hoxa13.L" "crabp2.L" "fgf20.L"  "not.L"    "hoxa13.S"
+
+CgenesXenbase[na.omit(match(Expt1lowStrin_OverExpressedWT,CgenesXenbase))]
+```
+
+
+I've created a table of the list of Cgenes which are DE in the various expts (Cgenes differentially expressed in development). 
+
+
+All of the Cgenes are genes which were DE in all three development sides of the experiments when Rob analysed the data. I'm interested as to why some of these genes (e.g., phdgh.S/.L, which was the most significant gene by p.value in R's analysis) has not appeared in my analysis. 
+
+
+
+
+
+20180405
+=========================================
+On 20180321 I decided to look into why some of the Cgenes didn’t appear in any of my DE gene lists. 
+I expected these to be in there because the Cgenes were found to be DE in all three experiments when Rob first ran this analysis. 
+When I looked for where they were in the total (i.e., not only significant) DE gene list table, I found they were completely absent. 
+Looking further, I discovered that many of these genes (phdgh, spry4, prss27, lrrc15 (although I can spot 16 other forms of lrrc??), adamts18, or endrb) are absent from the  NcbiMrnaXenbaseGene_laevis.txt file I used to make the critical tx2gene table (converts RNA seq ID into genes). The NcbiMrnaXenbaseGene_laevis.txt file was downloaded from Xenbase directly, so I’m at a bit of a loss as to why it lacks these genes. 
+
+I looked at the Cgenes physical printout and used the refseq ID (e.g., NM_001087722) and discovered that phdgh is actually spelt PHGDH, which is why it wasn't showing. Same for endrb which could be EDNRB2 (at least, that's what the attached refSeq points to).
+
+I've been digging around various files on xenbase and on the harddrive with Rob's data, trying to find evidence of those genes listed above. 
+spry4 appears in a file on the hd - a X.laevis 9.1 primary transcript file. It looks pretty similar to the NcbiMrna file that I used to create my SALMON index. I am reasonably confident I could use that file to make a second index. I could use that and compare the mapping results. 
+
+The files on Xenbase are under two tabs: Sequences (no files include spry4) and Genomes. Genomes contains a lot of files, but under version 9.2 there is both genome assembly and gene models. Gene models has three sub files (Xenbase gene models, NCBI gene models and JGI gene models). Each of these is available only as a gff3 file. The readme for these three states there are 51,041 genes and 22,329 named genes. If I compare this to the NcbiMrna file, which has ~14,000 genes there is a deficit of 7,500 genes not included in the Index. 
+This is a lot. 
+
+
+```{r}
+xenbaseGeneModels <- read.csv("~/rnaSeqData/geneConverters/xenbaseGeneModels.csv", header=FALSE, comment.char="#")
+NCBIGeneModels <- read.csv("~/rnaSeqData/geneConverters/NCBIGeneModels.csv", header=FALSE, comment.char="#")
+ncbiMRNA <- NCBIGeneModels[grep("mRNA",as.vector(NCBIGeneModels[,3])),]
+ncbiMRNA[,9]
+
+
+## Compare the 9.1 transcriptome with the NCBImRNA transcriptome and see what exactly is different
+XL_9.1_v1.8.3.2.primaryTranscripts <- read.delim("~/rnaSeqData/geneConverters/XL_9.1_v1.8.3.2.primaryTranscripts.fa", header=FALSE)
+NinePointOneTranscriptome <- XL_9.1_v1.8.3.2.primaryTranscripts
+rm(XL_9.1_v1.8.3.2.primaryTranscripts)
+
+library(limma)
+transcriptome9point1 <- strsplit2(as.vector(NinePointOneTranscriptome[seq(1,length(as.vector(NinePointOneTranscriptome[,1])),2),]),"|",fixed=T)[,3]
+transcriptome9point1[1:100]
+# Good, but looking closely I see there is a space in front of each gene name. 
+transcriptome9point1 <- strsplit2(transcriptome9point1," ",fixed=T)[,2]
+
+NcbiMrnaXenbaseGene_laevis <- read.delim("~/rnaSeqData/geneConverters/NcbiMrnaXenbaseGene_laevis.txt", header=FALSE)
+NcbiMrnaXenbaseGene_laevis[1:10,]
+
+length(unique(transcriptome9point1)) # 45036
+length(unique(NcbiMrnaXenbaseGene_laevis[,4])) # 14827
+
+length(na.omit(match(unique(as.vector(NcbiMrnaXenbaseGene_laevis[,4])),unique(transcriptome9point1))))
+# 13,232 of the NcbiMrna map. 
+## Meaning there are some 30k (45036 - 13232) unique transcripts in the 9.1 transcriptome that are absent in the NcbiMrna file. 
+
+uniqueToNinePointOne <- transcriptome9point1[-as.vector(na.omit(match(unique(as.vector(NcbiMrnaXenbaseGene_laevis[,4])),unique(transcriptome9point1))))]
+uniqueToNinePointOne
+length(grep("Xelaev",uniqueToNinePointOne))
+# 31,867 unique and exclusive to 9.1
+## Of these, 11,668 are Xelaev##### where ### is a string of numbers. I don't know what these genes are, but they are probably useless to me. Some kind of unidentified transcripts??
+uniqueToNinePointOne <- uniqueToNinePointOne[-grep("Xelaev",uniqueToNinePointOne)]
+
+length(grep("loc",uniqueToNinePointOne))
+# 2733
+uniqueToNinePointOne <- uniqueToNinePointOne[-grep("loc",uniqueToNinePointOne)]
+
+## I see there are also a set of genes called Xetrov########. 
+length(grep("Xetrov",uniqueToNinePointOne))
+# 1,219
+uniqueToNinePointOne <- uniqueToNinePointOne[-grep("Xetrov",uniqueToNinePointOne)]
+
+length(uniqueToNinePointOne) # 16,247 transcripts remain which are absent from NcbiMrna and are useful - annotated with proper names. 
+## Many (approx 60% based on the genome??) will be duplicates e.g., wdr78.S and wdr78.L
+
+uniqueToNinePointOne
+grep("spry4",uniqueToNinePointOne)
+## Spry4 is in there. 
+
+NcbiMrnaXenbaseGene_laevis[grep("kmt2a",as.vector(NcbiMrnaXenbaseGene_laevis[,4])),]
+
+lapply(16000:16247,function(x) NcbiMrnaXenbaseGene_laevis[grep(uniqueToNinePointOne[x],as.vector(NcbiMrnaXenbaseGene_laevis[,4])),])
+
+# All empty
+
+length(unique(uniqueToNinePointOne)) # 16,215
+
+rm(transcriptome9point1)
+rm(NinePointOneTranscriptome)
+
+uniqueToNinePointOne[1:100]
+```
+
+uniqueToNinePointOne contains 176247 (16,215 unique) transcripts which are not found in the 9.2 xlaevis transcriptome. 
+
+Because I don't want to miss out on that information, I'm going to build a new file which will be used for a new Index. I'll also need to build a new tx2gene table. I'll take this opportunity to build a proper pipeline with the idea that any new data could be put into the pipeline, with no specifications/user info required. 
+The pipeline will create DESeq2 and EdgeR DE gene lists with significance set to p<0.05 (FDR adjusted) + logFC >1/< -1, as well as p<0.05 (FDR adjusted) + logFC >0.5/< -0.5
 
 
 
 
 
 
-
-
+20180406 NinePointTwoPlus
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 

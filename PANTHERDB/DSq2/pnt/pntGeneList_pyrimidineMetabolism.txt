@@ -1,4 +1,0 @@
-XENTR|Xenbase=XB-GENE-976127|UniProtKB=F7D3Q1	upb1	Uncharacterized protein (Fragment);upb1;ortholog	BETA-UREIDOPROPIONASE (PTHR43674:SF2)	hydrolase(PC00121)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-959927|UniProtKB=F6UBT2	dpys	Dihydropyrimidinase;dpys;ortholog	DIHYDROPYRIMIDINASE (PTHR11647:SF50)	metalloprotease(PC00153)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-944729|UniProtKB=Q6GL72	dpysl3	Dihydropyrimidinase-related protein 3;dpysl3;ortholog	DIHYDROPYRIMIDINASE-RELATED PROTEIN 3 (PTHR11647:SF57)	metalloprotease(PC00153)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-957494|UniProtKB=B2GUT2	abat	4-aminobutyrate aminotransferase;abat;ortholog	4-AMINOBUTYRATE AMINOTRANSFERASE, MITOCHONDRIAL (PTHR43206:SF1)	transaminase(PC00216)	Xenopus tropicalis

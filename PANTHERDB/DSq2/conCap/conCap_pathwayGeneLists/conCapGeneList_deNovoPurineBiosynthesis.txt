@@ -1,0 +1,7 @@
+UniProtKB=F6TK54	ak1	Adenylate kinase isoenzyme 1;ak1;ortholog	ADENYLATE KINASE ISOENZYME 1 (PTHR23359:SF70)	nucleotide kinase(PC00172)	
+UniProtKB=F7DL73	ak4	Adenylate kinase 4, mitochondrial;ak4;ortholog	ADENYLATE KINASE 4, MITOCHONDRIAL (PTHR23359:SF58)	nucleotide kinase(PC00172)	
+UniProtKB=Q6GLC2	adsl	Adenylosuccinate lyase;adsl;ortholog	ADENYLOSUCCINATE LYASE (PTHR43172:SF1)	lyase(PC00144)	
+UniProtKB=Q6P618	ak8	Adenylate kinase 8;ak8;ortholog	ADENYLATE KINASE 8 (PTHR23359:SF81)	nucleotide kinase(PC00172)	
+UniProtKB=F7A8Q9	nme5	Uncharacterized protein;nme5;ortholog	NUCLEOSIDE DIPHOSPHATE KINASE HOMOLOG 5 (PTHR46161:SF1)	nucleotide kinase(PC00172)	
+UniProtKB=Q6AZK9	nme2	Nucleoside diphosphate kinase;nme2;ortholog	NUCLEOSIDE DIPHOSPHATE KINASE A (PTHR11349:SF69)		
+UniProtKB=Q28H12	cmpk1	UMP-CMP kinase;cmpk1;ortholog	UMP-CMP KINASE (PTHR23359:SF107)	nucleotide kinase(PC00172)	

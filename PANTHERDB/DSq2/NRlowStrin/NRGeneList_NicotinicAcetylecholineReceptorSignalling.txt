@@ -1,8 +1,0 @@
-XENTR|Xenbase=XB-GENE-977139|UniProtKB=F6RLA9	chrna1	Cholinergic receptor, nicotinic alpha 1;chrna1;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT ALPHA (PTHR18945:SF74)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-989276|UniProtKB=Q6DIX8	myh3	Myosin, heavy polypeptide 2, skeletal muscle, adult;myh3;ortholog	MYOSIN-4 (PTHR45615:SF2)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-979686|UniProtKB=F7DHN1	chrne	Cholinergic receptor, nicotinic epsilon;chrne;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT EPSILON (PTHR18945:SF59)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-5823874|UniProtKB=F6SLM7	cacna1s	Calcium channel, voltage-dependent, L type, alpha 1S subunit;cacna1s;ortholog	VOLTAGE-DEPENDENT L-TYPE CALCIUM CHANNEL SUBUNIT ALPHA-1S (PTHR45628:SF9)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-923160|UniProtKB=F7DYW2	ache	Carboxylic ester hydrolase;ache;ortholog	ACETYLCHOLINESTERASE (PTHR43918:SF8)		Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-480347|UniProtKB=Q6P640	actc1	Actin, alpha cardiac muscle 1;actc1;ortholog	ACTIN, ALPHA CARDIAC MUSCLE 1 (PTHR11937:SF176)	actin and actin related protein(PC00039)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-989975|UniProtKB=F6WX27	chrnd	Uncharacterized protein (Fragment);chrnd;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT DELTA (PTHR18945:SF61)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis
-XENTR|Xenbase=XB-GENE-990010|UniProtKB=F6WX69	chrng	Uncharacterized protein (Fragment);chrng;ortholog	ACETYLCHOLINE RECEPTOR SUBUNIT GAMMA (PTHR18945:SF60)	GABA receptor(PC00023);acetylcholine receptor(PC00037)	Xenopus tropicalis

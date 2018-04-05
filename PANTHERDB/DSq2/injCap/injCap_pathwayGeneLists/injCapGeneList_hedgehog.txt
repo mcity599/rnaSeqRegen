@@ -1,0 +1,7 @@
+UniProtKB=F7EBW1	smo	Smoothened, frizzled class receptor;smo;ortholog	SMOOTHENED HOMOLOG (PTHR11309:SF35)	G-protein coupled receptor(PC00021);protease inhibitor(PC00191);signaling molecule(PC00207)	
+UniProtKB=F7DDM3	gli1	GLI family zinc finger 1;gli1;ortholog	ZINC FINGER PROTEIN GLI1 (PTHR45718:SF2)		
+UniProtKB=F7EBR3	fbxw7	F-box and WD repeat domain-containing 7;fbxw7;ortholog	F-BOX/WD REPEAT-CONTAINING PROTEIN 7 (PTHR19849:SF1)	enzyme modulator(PC00095)	
+UniProtKB=F7DZP4	ptch1	Patched 1;ptch1;ortholog	PROTEIN PATCHED HOMOLOG 1 (PTHR46022:SF1)		
+UniProtKB=F6ZZG5	sufu	Suppressor of fused homolog;sufu;ortholog	SUPPRESSOR OF FUSED HOMOLOG (PTHR10928:SF2)		
+UniProtKB=F6Y5K1	gli2	GLI family zinc finger 2;gli2;ortholog	ZINC FINGER PROTEIN GLI2 (PTHR45718:SF6)		
+UniProtKB=F6XFR9	gli3	GLI family zinc finger 3;gli3;ortholog	TRANSCRIPTIONAL ACTIVATOR GLI3 (PTHR45718:SF5)		

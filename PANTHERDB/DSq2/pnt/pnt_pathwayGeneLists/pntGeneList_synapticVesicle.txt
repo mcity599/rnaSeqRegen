@@ -1,0 +1,5 @@
+UniProtKB=Q28HP6	snap25	Synaptosomal-associated protein;snap25;ortholog	SYNAPTOSOMAL-ASSOCIATED PROTEIN 25 (PTHR19305:SF5)	SNARE protein(PC00034)	
+UniProtKB=F7ED11	stxbp1	Uncharacterized protein (Fragment);stxbp1;ortholog	SYNTAXIN-BINDING PROTEIN 1 (PTHR11679:SF35)	membrane trafficking regulatory protein(PC00151);transporter(PC00227)	
+UniProtKB=F7DFQ7	syp	Uncharacterized protein (Fragment);syp;ortholog	SYNAPTOPHYSIN (PTHR10306:SF10)	membrane trafficking regulatory protein(PC00151)	
+UniProtKB=F7AFY3	vamp2	Uncharacterized protein (Fragment);vamp2;ortholog	VESICLE-ASSOCIATED MEMBRANE PROTEIN 2 (PTHR45701:SF5)		
+UniProtKB=F7EP58	stx1b	Uncharacterized protein (Fragment);stx1b;ortholog	SYNTAXIN-1B (PTHR19957:SF76)	SNARE protein(PC00034)	
